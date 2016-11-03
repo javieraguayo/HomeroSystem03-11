@@ -3,7 +3,7 @@ package com.bushodevelopers.homerosystem03.controller;
 import com.bushodevelopers.homerosystem03.model.Usuario;
 import com.bushodevelopers.homerosystem03.controller.util.JsfUtil;
 import com.bushodevelopers.homerosystem03.controller.util.JsfUtil.PersistAction;
-import com.bushodevelopers.homerosystem03.ejb.UsuarioFacade;
+import com.bushodevelopers.homerosystem03.ejb.UsuarioFacadeAuto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class UsuarioController implements Serializable {
 
     @EJB
-    private com.bushodevelopers.homerosystem03.ejb.UsuarioFacade ejbFacade;
+    private com.bushodevelopers.homerosystem03.ejb.UsuarioFacadeAuto ejbFacade;
     private List<Usuario> items = null;
     private Usuario selected;
 
@@ -45,7 +45,7 @@ public class UsuarioController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private UsuarioFacade getFacade() {
+    private UsuarioFacadeAuto getFacade() {
         return ejbFacade;
     }
 

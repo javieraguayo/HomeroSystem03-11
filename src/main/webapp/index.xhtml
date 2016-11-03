@@ -1,54 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Facelet Title</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="/base_Datos/List" value="Show All Base_Datos Items"/>
-        <br />
-        <h:link outcome="/garantia/List" value="Show All Garantia Items"/>
-        <br />
-        <h:link outcome="/incidente/List" value="Show All Incidente Items"/>
-        <br />
-        <h:link outcome="/lenguaje/List" value="Show All Lenguaje Items"/>
-        <br />
-        <h:link outcome="/proveedor/List" value="Show All Proveedor Items"/>
-        <br />
-        <h:link outcome="/rack/List" value="Show All Rack Items"/>
-        <br />
-        <h:link outcome="/responsable/List" value="Show All Responsable Items"/>
-        <br />
-        <h:link outcome="/rol/List" value="Show All Rol Items"/>
-        <br />
-        <h:link outcome="/servidor/List" value="Show All Servidor Items"/>
-        <br />
-        <h:link outcome="/servidor_Apk/List" value="Show All Servidor_Apk Items"/>
-        <br />
-        <h:link outcome="/sistema/List" value="Show All Sistema Items"/>
-        <br />
-        <h:link outcome="/solucion/List" value="Show All Solucion Items"/>
-        <br />
-        <h:link outcome="/usuario/List" value="Show All Usuario Items"/>
+        <h:form>
+            <p:messages autoUpdate="true" showDetail="true"/>
+            <h:panelGrid columns="2">
+                <p:outputLabel for="txtUsuario" value="Usuario"/>
+                <p:inputText id="txtUsuario" value="#{indexController.usuario.usuario}" required="true"/>
+
+                <p:outputLabel for="txtPassword" value="Password"/>
+                <p:password id="txtPassword" value="#{indexController.usuario.password}" required="true"/>
+                <h:column/>
+                <p:commandButton value="Inciar Sesión" action="#{indexController.iniciarSesion()}"/>
+
+            </h:panelGrid>
+            <p:separator/>
+        </h:form>
+       
     </h:body>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
 
