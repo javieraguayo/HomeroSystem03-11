@@ -83,4 +83,11 @@ public class IndexController implements Serializable{
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         
     }
+    
+    public String usuarioLogeado(){
+        
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        return us.getUsuario(); 
+    
+    }
 }
