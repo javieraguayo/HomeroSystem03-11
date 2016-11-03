@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SolucionViewDlg" widgetVar="SolucionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSolucionTitle}">
+            <h:form id="SolucionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{solucionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSolucionLabel_id_solucion}"/>
+                        <h:outputText value="#{solucionController.selected.id_solucion}" title="#{bundle.ViewSolucionTitle_id_solucion}"/>
+                        <h:outputText value="#{bundle.ViewSolucionLabel_estado}"/>
+                        <h:outputText value="#{solucionController.selected.estado}" title="#{bundle.ViewSolucionTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewSolucionLabel_descripcion}"/>
+                        <h:outputText value="#{solucionController.selected.descripcion}" title="#{bundle.ViewSolucionTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewSolucionLabel_fecha}"/>
+                        <h:outputText value="#{solucionController.selected.fecha}" title="#{bundle.ViewSolucionTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SolucionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

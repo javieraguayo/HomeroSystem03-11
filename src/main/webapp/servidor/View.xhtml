@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServidorViewDlg" widgetVar="ServidorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewServidorTitle}">
+            <h:form id="ServidorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{servidorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewServidorLabel_id_servidor}"/>
+                        <h:outputText value="#{servidorController.selected.id_servidor}" title="#{bundle.ViewServidorTitle_id_servidor}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_proveedor}"/>
+                        <h:outputText value="#{servidorController.selected.proveedor}" title="#{bundle.ViewServidorTitle_proveedor}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_garantia}"/>
+                        <h:outputText value="#{servidorController.selected.garantia}" title="#{bundle.ViewServidorTitle_garantia}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_nombre}"/>
+                        <h:outputText value="#{servidorController.selected.nombre}" title="#{bundle.ViewServidorTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_ubicacion}"/>
+                        <h:outputText value="#{servidorController.selected.ubicacion}" title="#{bundle.ViewServidorTitle_ubicacion}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_hdd}"/>
+                        <h:outputText value="#{servidorController.selected.hdd}" title="#{bundle.ViewServidorTitle_hdd}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_ram}"/>
+                        <h:outputText value="#{servidorController.selected.ram}" title="#{bundle.ViewServidorTitle_ram}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_ip}"/>
+                        <h:outputText value="#{servidorController.selected.ip}" title="#{bundle.ViewServidorTitle_ip}"/>
+                        <h:outputText value="#{bundle.ViewServidorLabel_rack}"/>
+                        <h:outputText value="#{servidorController.selected.rack}" title="#{bundle.ViewServidorTitle_rack}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ServidorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

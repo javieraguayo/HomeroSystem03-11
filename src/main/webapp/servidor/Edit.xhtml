@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServidorEditDlg" widgetVar="ServidorEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditServidorTitle}">
+            <h:form id="ServidorEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{servidorController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditServidorLabel_id_servidor}" for="id_servidor" />
+                        <p:inputText id="id_servidor" value="#{servidorController.selected.id_servidor}" title="#{bundle.EditServidorTitle_id_servidor}" />
+                        <p:outputLabel value="#{bundle.EditServidorLabel_proveedor}" for="proveedor" />
+                        <p:selectOneMenu id="proveedor" value="#{servidorController.selected.proveedor}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"
+                                           var="proveedorItem"
+                                           itemValue="#{proveedorItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditServidorLabel_garantia}" for="garantia" />
+                        <p:selectOneMenu id="garantia" value="#{servidorController.selected.garantia}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{garantiaController.itemsAvailableSelectOne}"
+                                           var="garantiaItem"
+                                           itemValue="#{garantiaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditServidorLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{servidorController.selected.nombre}" title="#{bundle.EditServidorTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.EditServidorLabel_ubicacion}" for="ubicacion" />
+                        <p:inputText id="ubicacion" value="#{servidorController.selected.ubicacion}" title="#{bundle.EditServidorTitle_ubicacion}" />
+                        <p:outputLabel value="#{bundle.EditServidorLabel_hdd}" for="hdd" />
+                        <p:inputText id="hdd" value="#{servidorController.selected.hdd}" title="#{bundle.EditServidorTitle_hdd}" />
+                        <p:outputLabel value="#{bundle.EditServidorLabel_ram}" for="ram" />
+                        <p:inputText id="ram" value="#{servidorController.selected.ram}" title="#{bundle.EditServidorTitle_ram}" />
+                        <p:outputLabel value="#{bundle.EditServidorLabel_ip}" for="ip" />
+                        <p:inputText id="ip" value="#{servidorController.selected.ip}" title="#{bundle.EditServidorTitle_ip}" />
+                        <p:outputLabel value="#{bundle.EditServidorLabel_rack}" for="rack" />
+                        <p:selectOneMenu id="rack" value="#{servidorController.selected.rack}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{rackController.itemsAvailableSelectOne}"
+                                           var="rackItem"
+                                           itemValue="#{rackItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{servidorController.update}" value="#{bundle.Save}" update="display,:ServidorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ServidorEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServidorEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SistemaViewDlg" widgetVar="SistemaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSistemaTitle}">
+            <h:form id="SistemaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sistemaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSistemaLabel_id_sistema}"/>
+                        <h:outputText value="#{sistemaController.selected.id_sistema}" title="#{bundle.ViewSistemaTitle_id_sistema}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_servidor_Apk}"/>
+                        <h:outputText value="#{sistemaController.selected.servidor_Apk}" title="#{bundle.ViewSistemaTitle_servidor_Apk}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_servidor}"/>
+                        <h:outputText value="#{sistemaController.selected.servidor}" title="#{bundle.ViewSistemaTitle_servidor}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_base_datos}"/>
+                        <h:outputText value="#{sistemaController.selected.base_datos}" title="#{bundle.ViewSistemaTitle_base_datos}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_nombre}"/>
+                        <h:outputText value="#{sistemaController.selected.nombre}" title="#{bundle.ViewSistemaTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_version}"/>
+                        <h:outputText value="#{sistemaController.selected.version}" title="#{bundle.ViewSistemaTitle_version}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_descripcion}"/>
+                        <h:outputText value="#{sistemaController.selected.descripcion}" title="#{bundle.ViewSistemaTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewSistemaLabel_lenguaje}"/>
+                        <h:outputText value="#{sistemaController.selected.lenguaje}" title="#{bundle.ViewSistemaTitle_lenguaje}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SistemaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

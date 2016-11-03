@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GarantiaViewDlg" widgetVar="GarantiaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewGarantiaTitle}">
+            <h:form id="GarantiaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{garantiaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewGarantiaLabel_id_garantia}"/>
+                        <h:outputText value="#{garantiaController.selected.id_garantia}" title="#{bundle.ViewGarantiaTitle_id_garantia}"/>
+                        <h:outputText value="#{bundle.ViewGarantiaLabel_nombre}"/>
+                        <h:outputText value="#{garantiaController.selected.nombre}" title="#{bundle.ViewGarantiaTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewGarantiaLabel_descripcion}"/>
+                        <h:outputText value="#{garantiaController.selected.descripcion}" title="#{bundle.ViewGarantiaTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewGarantiaLabel_fecha_inicio}"/>
+                        <h:outputText value="#{garantiaController.selected.fecha_inicio}" title="#{bundle.ViewGarantiaTitle_fecha_inicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewGarantiaLabel_fecha_termino}"/>
+                        <h:outputText value="#{garantiaController.selected.fecha_termino}" title="#{bundle.ViewGarantiaTitle_fecha_termino}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="GarantiaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

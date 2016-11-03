@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SolucionEditDlg" widgetVar="SolucionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSolucionTitle}">
+            <h:form id="SolucionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{solucionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSolucionLabel_id_solucion}" for="id_solucion" />
+                        <p:inputText id="id_solucion" value="#{solucionController.selected.id_solucion}" title="#{bundle.EditSolucionTitle_id_solucion}" />
+                        <p:outputLabel value="#{bundle.EditSolucionLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{solucionController.selected.estado}" title="#{bundle.EditSolucionTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditSolucionLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{solucionController.selected.descripcion}" title="#{bundle.EditSolucionTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditSolucionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{solucionController.selected.fecha}" title="#{bundle.EditSolucionTitle_fecha}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{solucionController.update}" value="#{bundle.Save}" update="display,:SolucionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SolucionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SolucionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LenguajeViewDlg" widgetVar="LenguajeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLenguajeTitle}">
+            <h:form id="LenguajeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{lenguajeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLenguajeLabel_id_lenguaje}"/>
+                        <h:outputText value="#{lenguajeController.selected.id_lenguaje}" title="#{bundle.ViewLenguajeTitle_id_lenguaje}"/>
+                        <h:outputText value="#{bundle.ViewLenguajeLabel_nombre}"/>
+                        <h:outputText value="#{lenguajeController.selected.nombre}" title="#{bundle.ViewLenguajeTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewLenguajeLabel_version}"/>
+                        <h:outputText value="#{lenguajeController.selected.version}" title="#{bundle.ViewLenguajeTitle_version}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LenguajeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

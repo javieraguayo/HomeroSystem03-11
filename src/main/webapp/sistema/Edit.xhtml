@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SistemaEditDlg" widgetVar="SistemaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSistemaTitle}">
+            <h:form id="SistemaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sistemaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_id_sistema}" for="id_sistema" />
+                        <p:inputText id="id_sistema" value="#{sistemaController.selected.id_sistema}" title="#{bundle.EditSistemaTitle_id_sistema}" />
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_servidor_Apk}" for="servidor_Apk" />
+                        <p:selectOneMenu id="servidor_Apk" value="#{sistemaController.selected.servidor_Apk}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{servidor_ApkController.itemsAvailableSelectOne}"
+                                           var="servidor_ApkItem"
+                                           itemValue="#{servidor_ApkItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_servidor}" for="servidor" />
+                        <p:selectOneMenu id="servidor" value="#{sistemaController.selected.servidor}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{servidorController.itemsAvailableSelectOne}"
+                                           var="servidorItem"
+                                           itemValue="#{servidorItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_base_datos}" for="base_datos" />
+                        <p:selectOneMenu id="base_datos" value="#{sistemaController.selected.base_datos}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{base_DatosController.itemsAvailableSelectOne}"
+                                           var="base_datosItem"
+                                           itemValue="#{base_datosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{sistemaController.selected.nombre}" title="#{bundle.EditSistemaTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_version}" for="version" />
+                        <p:inputText id="version" value="#{sistemaController.selected.version}" title="#{bundle.EditSistemaTitle_version}" />
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{sistemaController.selected.descripcion}" title="#{bundle.EditSistemaTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditSistemaLabel_lenguaje}" for="lenguaje" />
+                        <p:selectOneMenu id="lenguaje" value="#{sistemaController.selected.lenguaje}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{lenguajeController.itemsAvailableSelectOne}"
+                                           var="lenguajeItem"
+                                           itemValue="#{lenguajeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{sistemaController.update}" value="#{bundle.Save}" update="display,:SistemaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SistemaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SistemaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

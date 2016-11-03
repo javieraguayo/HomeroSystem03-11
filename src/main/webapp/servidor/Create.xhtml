@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServidorCreateDlg" widgetVar="ServidorCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateServidorTitle}">
+            <h:form id="ServidorCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{servidorController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_id_servidor}" for="id_servidor" />
+                        <p:inputText id="id_servidor" value="#{servidorController.selected.id_servidor}" title="#{bundle.CreateServidorTitle_id_servidor}" />
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_proveedor}" for="proveedor" />
+                        <p:selectOneMenu id="proveedor" value="#{servidorController.selected.proveedor}" >
+                            <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"
+                                           var="proveedorItem"
+                                           itemValue="#{proveedorItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_garantia}" for="garantia" />
+                        <p:selectOneMenu id="garantia" value="#{servidorController.selected.garantia}" >
+                            <f:selectItems value="#{garantiaController.itemsAvailableSelectOne}"
+                                           var="garantiaItem"
+                                           itemValue="#{garantiaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{servidorController.selected.nombre}" title="#{bundle.CreateServidorTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_ubicacion}" for="ubicacion" />
+                        <p:inputText id="ubicacion" value="#{servidorController.selected.ubicacion}" title="#{bundle.CreateServidorTitle_ubicacion}" />
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_hdd}" for="hdd" />
+                        <p:inputText id="hdd" value="#{servidorController.selected.hdd}" title="#{bundle.CreateServidorTitle_hdd}" />
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_ram}" for="ram" />
+                        <p:inputText id="ram" value="#{servidorController.selected.ram}" title="#{bundle.CreateServidorTitle_ram}" />
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_ip}" for="ip" />
+                        <p:inputText id="ip" value="#{servidorController.selected.ip}" title="#{bundle.CreateServidorTitle_ip}" />
+                        <p:outputLabel value="#{bundle.CreateServidorLabel_rack}" for="rack" />
+                        <p:selectOneMenu id="rack" value="#{servidorController.selected.rack}" >
+                            <f:selectItems value="#{rackController.itemsAvailableSelectOne}"
+                                           var="rackItem"
+                                           itemValue="#{rackItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{servidorController.create}" value="#{bundle.Save}" update="display,:ServidorListForm:datalist,:growl" oncomplete="handleSubmit(args,'ServidorCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServidorCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

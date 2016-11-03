@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncidenteCreateDlg" widgetVar="IncidenteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateIncidenteTitle}">
+            <h:form id="IncidenteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incidenteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_id_incidente}" for="id_incidente" />
+                        <p:inputText id="id_incidente" value="#{incidenteController.selected.id_incidente}" title="#{bundle.CreateIncidenteTitle_id_incidente}" />
+                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_responsable}" for="responsable" />
+                        <p:selectOneMenu id="responsable" value="#{incidenteController.selected.responsable}" >
+                            <f:selectItems value="#{responsableController.itemsAvailableSelectOne}"
+                                           var="responsableItem"
+                                           itemValue="#{responsableItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_sistema}" for="sistema" />
+                        <p:selectOneMenu id="sistema" value="#{incidenteController.selected.sistema}" >
+                            <f:selectItems value="#{sistemaController.itemsAvailableSelectOne}"
+                                           var="sistemaItem"
+                                           itemValue="#{sistemaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_solucion}" for="solucion" />
+                        <p:selectOneMenu id="solucion" value="#{incidenteController.selected.solucion}" >
+                            <f:selectItems value="#{solucionController.itemsAvailableSelectOne}"
+                                           var="solucionItem"
+                                           itemValue="#{solucionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{incidenteController.selected.fecha}" title="#{bundle.EditIncidenteTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{incidenteController.selected.descripcion}" title="#{bundle.CreateIncidenteTitle_descripcion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{incidenteController.create}" value="#{bundle.Save}" update="display,:IncidenteListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncidenteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IncidenteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
