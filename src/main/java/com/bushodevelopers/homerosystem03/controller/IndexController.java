@@ -16,6 +16,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import javax.inject.Named;
 
@@ -29,6 +30,7 @@ public class IndexController implements Serializable{
     
     @EJB
     private UsuarioFacadeLocal EJBUsuario;
+    @Inject //patron de diseño CDI Contexts and Dependency Injection
     private Usuario usuario;
 
     public Usuario getUsuario() {
@@ -41,7 +43,8 @@ public class IndexController implements Serializable{
     
     @PostConstruct
     public void init(){
-    usuario = new Usuario();
+    
+        //usuario = new Usuario();
     }
     
     public String iniciarSesion(){
