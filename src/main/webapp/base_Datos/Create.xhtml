@@ -11,9 +11,8 @@
         <p:dialog id="Base_DatosCreateDlg" widgetVar="Base_DatosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBase_DatosTitle}">
             <h:form id="Base_DatosCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{base_DatosController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateBase_DatosLabel_id_bd}" for="id_bd" />
-                        <p:inputText id="id_bd" value="#{base_DatosController.selected.id_bd}" title="#{bundle.CreateBase_DatosTitle_id_bd}" />
+                    <p:panelGrid columns="2" rendered="#{base_DatosController.selected != null}" >
+                        
                         <p:outputLabel value="#{bundle.CreateBase_DatosLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{base_DatosController.selected.nombre}" title="#{bundle.CreateBase_DatosTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateBase_DatosLabel_motor}" for="motor" />

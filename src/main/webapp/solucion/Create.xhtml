@@ -12,8 +12,7 @@
             <h:form id="SolucionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{solucionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSolucionLabel_id_solucion}" for="id_solucion" />
-                        <p:inputText id="id_solucion" value="#{solucionController.selected.id_solucion}" title="#{bundle.CreateSolucionTitle_id_solucion}" />
+                        
                         <p:outputLabel value="#{bundle.CreateSolucionLabel_estado}" for="estado" />
                         <p:inputText id="estado" value="#{solucionController.selected.estado}" title="#{bundle.CreateSolucionTitle_estado}" />
                         <p:outputLabel value="#{bundle.CreateSolucionLabel_descripcion}" for="descripcion" />

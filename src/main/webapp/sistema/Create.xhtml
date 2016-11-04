@@ -12,8 +12,7 @@
             <h:form id="SistemaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{sistemaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSistemaLabel_id_sistema}" for="id_sistema" />
-                        <p:inputText id="id_sistema" value="#{sistemaController.selected.id_sistema}" title="#{bundle.CreateSistemaTitle_id_sistema}" />
+
                         <p:outputLabel value="#{bundle.CreateSistemaLabel_servidor_Apk}" for="servidor_Apk" />
                         <p:selectOneMenu id="servidor_Apk" value="#{sistemaController.selected.servidor_Apk}" >
                             <f:selectItems value="#{servidor_ApkController.itemsAvailableSelectOne}"

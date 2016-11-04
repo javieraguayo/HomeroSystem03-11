@@ -12,8 +12,7 @@
             <h:form id="GarantiaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{garantiaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateGarantiaLabel_id_garantia}" for="id_garantia" />
-                        <p:inputText id="id_garantia" value="#{garantiaController.selected.id_garantia}" title="#{bundle.CreateGarantiaTitle_id_garantia}" />
+                        
                         <p:outputLabel value="#{bundle.CreateGarantiaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{garantiaController.selected.nombre}" title="#{bundle.CreateGarantiaTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateGarantiaLabel_descripcion}" for="descripcion" />

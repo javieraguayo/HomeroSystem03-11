@@ -12,8 +12,7 @@
             <h:form id="ServidorCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{servidorController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateServidorLabel_id_servidor}" for="id_servidor" />
-                        <p:inputText id="id_servidor" value="#{servidorController.selected.id_servidor}" title="#{bundle.CreateServidorTitle_id_servidor}" />
+                        
                         <p:outputLabel value="#{bundle.CreateServidorLabel_proveedor}" for="proveedor" />
                         <p:selectOneMenu id="proveedor" value="#{servidorController.selected.proveedor}" >
                             <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"

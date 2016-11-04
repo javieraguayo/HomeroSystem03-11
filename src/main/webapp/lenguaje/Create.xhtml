@@ -12,8 +12,7 @@
             <h:form id="LenguajeCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{lenguajeController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateLenguajeLabel_id_lenguaje}" for="id_lenguaje" />
-                        <p:inputText id="id_lenguaje" value="#{lenguajeController.selected.id_lenguaje}" title="#{bundle.CreateLenguajeTitle_id_lenguaje}" />
+                        
                         <p:outputLabel value="#{bundle.CreateLenguajeLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{lenguajeController.selected.nombre}" title="#{bundle.CreateLenguajeTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateLenguajeLabel_version}" for="version" />

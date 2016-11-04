@@ -12,8 +12,7 @@
             <h:form id="IncidenteCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{incidenteController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateIncidenteLabel_id_incidente}" for="id_incidente" />
-                        <p:inputText id="id_incidente" value="#{incidenteController.selected.id_incidente}" title="#{bundle.CreateIncidenteTitle_id_incidente}" />
+                        
                         <p:outputLabel value="#{bundle.CreateIncidenteLabel_responsable}" for="responsable" />
                         <p:selectOneMenu id="responsable" value="#{incidenteController.selected.responsable}" >
                             <f:selectItems value="#{responsableController.itemsAvailableSelectOne}"

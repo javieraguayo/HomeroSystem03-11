@@ -12,8 +12,7 @@
             <h:form id="ResponsableCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{responsableController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateResponsableLabel_id_responsable}" for="id_responsable" />
-                        <p:inputText id="id_responsable" value="#{responsableController.selected.id_responsable}" title="#{bundle.CreateResponsableTitle_id_responsable}" />
+                        
                         <p:outputLabel value="#{bundle.CreateResponsableLabel_rut}" for="rut" />
                         <p:inputText id="rut" value="#{responsableController.selected.rut}" title="#{bundle.CreateResponsableTitle_rut}" />
                         <p:outputLabel value="#{bundle.CreateResponsableLabel_nombres}" for="nombres" />

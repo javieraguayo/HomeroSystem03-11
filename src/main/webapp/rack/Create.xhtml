@@ -12,8 +12,7 @@
             <h:form id="RackCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rackController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateRackLabel_id_rack}" for="id_rack" />
-                        <p:inputText id="id_rack" value="#{rackController.selected.id_rack}" title="#{bundle.CreateRackTitle_id_rack}" />
+                       
                         <p:outputLabel value="#{bundle.CreateRackLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{rackController.selected.nombre}" title="#{bundle.CreateRackTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateRackLabel_capacidad}" for="capacidad" />

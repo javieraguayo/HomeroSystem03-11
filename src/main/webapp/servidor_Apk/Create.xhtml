@@ -12,8 +12,7 @@
             <h:form id="Servidor_ApkCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{servidor_ApkController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateServidor_ApkLabel_id_serv_apk}" for="id_serv_apk" />
-                        <p:inputText id="id_serv_apk" value="#{servidor_ApkController.selected.id_serv_apk}" title="#{bundle.CreateServidor_ApkTitle_id_serv_apk}" />
+                        
                         <p:outputLabel value="#{bundle.CreateServidor_ApkLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{servidor_ApkController.selected.nombre}" title="#{bundle.CreateServidor_ApkTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateServidor_ApkLabel_version}" for="version" />
