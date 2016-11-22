@@ -18,6 +18,7 @@
                         <p:selectOneMenu id="rol" value="#{usuarioController.selected.rol}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
+                                           itemLabel="#{rolItem.nombre}"
                                            var="rolItem"
                                            itemValue="#{rolItem}"/>
                         </p:selectOneMenu>

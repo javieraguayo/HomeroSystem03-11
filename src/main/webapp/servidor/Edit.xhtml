@@ -19,6 +19,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"
                                            var="proveedorItem"
+                                           itemLabel="#{proveedorItem.nombre}"
                                            itemValue="#{proveedorItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditServidorLabel_garantia}" for="garantia" />
@@ -26,6 +27,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{garantiaController.itemsAvailableSelectOne}"
                                            var="garantiaItem"
+                                           itemLabel="#{garantiaItem.nombre}"
                                            itemValue="#{garantiaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditServidorLabel_nombre}" for="nombre" />
@@ -43,6 +45,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{rackController.itemsAvailableSelectOne}"
                                            var="rackItem"
+                                           itemLabel="#{rackItem.nombre}"
                                            itemValue="#{rackItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>

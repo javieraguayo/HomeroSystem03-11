@@ -17,12 +17,14 @@
                         <p:selectOneMenu id="proveedor" value="#{servidorController.selected.proveedor}" >
                             <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"
                                            var="proveedorItem"
+                                           itemLabel="#{proveedorItem.nombre}"
                                            itemValue="#{proveedorItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateServidorLabel_garantia}" for="garantia" />
                         <p:selectOneMenu id="garantia" value="#{servidorController.selected.garantia}" >
                             <f:selectItems value="#{garantiaController.itemsAvailableSelectOne}"
                                            var="garantiaItem"
+                                           itemLabel="#{garantiaItem.nombre}"
                                            itemValue="#{garantiaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateServidorLabel_nombre}" for="nombre" />
@@ -39,6 +41,7 @@
                         <p:selectOneMenu id="rack" value="#{servidorController.selected.rack}" >
                             <f:selectItems value="#{rackController.itemsAvailableSelectOne}"
                                            var="rackItem"
+                                           itemLabel="#{rackItem.nombre}"
                                            itemValue="#{rackItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>

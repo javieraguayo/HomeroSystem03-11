@@ -17,6 +17,7 @@
                         <p:selectOneMenu id="rol" value="#{usuarioController.selected.rol}" >
                             <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
                                            var="rolItem"
+                                           itemLabel="#{rolItem.nombre}"
                                            itemValue="#{rolItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_rut}" for="rut" />

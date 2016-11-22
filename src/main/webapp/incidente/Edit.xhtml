@@ -19,6 +19,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{responsableController.itemsAvailableSelectOne}"
                                            var="responsableItem"
+                                           itemLabel="#{responsableItem.nombres}"
                                            itemValue="#{responsableItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditIncidenteLabel_sistema}" for="sistema" />
@@ -26,6 +27,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{sistemaController.itemsAvailableSelectOne}"
                                            var="sistemaItem"
+                                           itemLabel="#{sistemaItem.nombre}"
                                            itemValue="#{sistemaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditIncidenteLabel_solucion}" for="solucion" />
@@ -33,6 +35,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{solucionController.itemsAvailableSelectOne}"
                                            var="solucionItem"
+                                           itemLabel="#{solucionItem.estado}"
                                            itemValue="#{solucionItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditIncidenteLabel_fecha}" for="fecha" />

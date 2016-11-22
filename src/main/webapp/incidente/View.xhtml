@@ -15,11 +15,11 @@
                         <h:outputText value="#{bundle.ViewIncidenteLabel_id_incidente}"/>
                         <h:outputText value="#{incidenteController.selected.id_incidente}" title="#{bundle.ViewIncidenteTitle_id_incidente}"/>
                         <h:outputText value="#{bundle.ViewIncidenteLabel_responsable}"/>
-                        <h:outputText value="#{incidenteController.selected.responsable}" title="#{bundle.ViewIncidenteTitle_responsable}"/>
+                        <h:outputText value="#{incidenteController.selected.responsable.nombres}" title="#{bundle.ViewIncidenteTitle_responsable}"/>
                         <h:outputText value="#{bundle.ViewIncidenteLabel_sistema}"/>
-                        <h:outputText value="#{incidenteController.selected.sistema}" title="#{bundle.ViewIncidenteTitle_sistema}"/>
+                        <h:outputText value="#{incidenteController.selected.sistema.nombre}" title="#{bundle.ViewIncidenteTitle_sistema}"/>
                         <h:outputText value="#{bundle.ViewIncidenteLabel_solucion}"/>
-                        <h:outputText value="#{incidenteController.selected.solucion}" title="#{bundle.ViewIncidenteTitle_solucion}"/>
+                        <h:outputText value="#{incidenteController.selected.solucion.descripcion}" title="#{bundle.ViewIncidenteTitle_solucion}"/>
                         <h:outputText value="#{bundle.ViewIncidenteLabel_fecha}"/>
                         <h:outputText value="#{incidenteController.selected.fecha}" title="#{bundle.ViewIncidenteTitle_fecha}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />

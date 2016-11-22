@@ -15,11 +15,11 @@
                         <h:outputText value="#{bundle.ViewSistemaLabel_id_sistema}"/>
                         <h:outputText value="#{sistemaController.selected.id_sistema}" title="#{bundle.ViewSistemaTitle_id_sistema}"/>
                         <h:outputText value="#{bundle.ViewSistemaLabel_servidor_Apk}"/>
-                        <h:outputText value="#{sistemaController.selected.servidor_Apk}" title="#{bundle.ViewSistemaTitle_servidor_Apk}"/>
+                        <h:outputText value="#{sistemaController.selected.servidor_Apk.nombre}" title="#{bundle.ViewSistemaTitle_servidor_Apk}"/>
                         <h:outputText value="#{bundle.ViewSistemaLabel_servidor}"/>
-                        <h:outputText value="#{sistemaController.selected.servidor}" title="#{bundle.ViewSistemaTitle_servidor}"/>
+                        <h:outputText value="#{sistemaController.selected.servidor.nombre}" title="#{bundle.ViewSistemaTitle_servidor}"/>
                         <h:outputText value="#{bundle.ViewSistemaLabel_base_datos}"/>
-                        <h:outputText value="#{sistemaController.selected.base_datos}" title="#{bundle.ViewSistemaTitle_base_datos}"/>
+                        <h:outputText value="#{sistemaController.selected.base_datos.nombre}" title="#{bundle.ViewSistemaTitle_base_datos}"/>
                         <h:outputText value="#{bundle.ViewSistemaLabel_nombre}"/>
                         <h:outputText value="#{sistemaController.selected.nombre}" title="#{bundle.ViewSistemaTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewSistemaLabel_version}"/>
@@ -27,7 +27,7 @@
                         <h:outputText value="#{bundle.ViewSistemaLabel_descripcion}"/>
                         <h:outputText value="#{sistemaController.selected.descripcion}" title="#{bundle.ViewSistemaTitle_descripcion}"/>
                         <h:outputText value="#{bundle.ViewSistemaLabel_lenguaje}"/>
-                        <h:outputText value="#{sistemaController.selected.lenguaje}" title="#{bundle.ViewSistemaTitle_lenguaje}"/>
+                        <h:outputText value="#{sistemaController.selected.lenguaje.nombre}" title="#{bundle.ViewSistemaTitle_lenguaje}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SistemaViewDialog.hide()"/>
                 </h:panelGroup>

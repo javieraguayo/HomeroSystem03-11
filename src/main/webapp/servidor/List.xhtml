@@ -37,13 +37,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_proveedor}"/>
                             </f:facet>
-                            <h:outputText value="#{item.proveedor}"/>
+                            <h:outputText value="#{item.proveedor.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_garantia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.garantia}"/>
+                            <h:outputText value="#{item.garantia.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -79,7 +79,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_rack}"/>
                             </f:facet>
-                            <h:outputText value="#{item.rack}"/>
+                            <h:outputText value="#{item.rack.nombre}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{servidorController.prepareCreate}" update=":ServidorCreateForm" oncomplete="PF('ServidorCreateDialog').show()"/>

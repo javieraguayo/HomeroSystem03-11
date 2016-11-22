@@ -15,9 +15,9 @@
                         <h:outputText value="#{bundle.ViewServidorLabel_id_servidor}"/>
                         <h:outputText value="#{servidorController.selected.id_servidor}" title="#{bundle.ViewServidorTitle_id_servidor}"/>
                         <h:outputText value="#{bundle.ViewServidorLabel_proveedor}"/>
-                        <h:outputText value="#{servidorController.selected.proveedor}" title="#{bundle.ViewServidorTitle_proveedor}"/>
+                        <h:outputText value="#{servidorController.selected.proveedor.nombre}" title="#{bundle.ViewServidorTitle_proveedor}"/>
                         <h:outputText value="#{bundle.ViewServidorLabel_garantia}"/>
-                        <h:outputText value="#{servidorController.selected.garantia}" title="#{bundle.ViewServidorTitle_garantia}"/>
+                        <h:outputText value="#{servidorController.selected.garantia.nombre}" title="#{bundle.ViewServidorTitle_garantia}"/>
                         <h:outputText value="#{bundle.ViewServidorLabel_nombre}"/>
                         <h:outputText value="#{servidorController.selected.nombre}" title="#{bundle.ViewServidorTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewServidorLabel_ubicacion}"/>
@@ -29,7 +29,7 @@
                         <h:outputText value="#{bundle.ViewServidorLabel_ip}"/>
                         <h:outputText value="#{servidorController.selected.ip}" title="#{bundle.ViewServidorTitle_ip}"/>
                         <h:outputText value="#{bundle.ViewServidorLabel_rack}"/>
-                        <h:outputText value="#{servidorController.selected.rack}" title="#{bundle.ViewServidorTitle_rack}"/>
+                        <h:outputText value="#{servidorController.selected.rack.nombre}" title="#{bundle.ViewServidorTitle_rack}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ServidorViewDialog.hide()"/>
                 </h:panelGroup>

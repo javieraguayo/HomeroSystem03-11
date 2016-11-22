@@ -16,19 +16,23 @@
                         <p:outputLabel value="#{bundle.CreateSistemaLabel_servidor_Apk}" for="servidor_Apk" />
                         <p:selectOneMenu id="servidor_Apk" value="#{sistemaController.selected.servidor_Apk}" >
                             <f:selectItems value="#{servidor_ApkController.itemsAvailableSelectOne}"
+                                           
                                            var="servidor_ApkItem"
+                                           itemLabel="#{servidor_ApkItem.nombre}"
                                            itemValue="#{servidor_ApkItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSistemaLabel_servidor}" for="servidor" />
                         <p:selectOneMenu id="servidor" value="#{sistemaController.selected.servidor}" >
                             <f:selectItems value="#{servidorController.itemsAvailableSelectOne}"
                                            var="servidorItem"
+                                           itemLabel="#{servidorItem.nombre}"
                                            itemValue="#{servidorItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSistemaLabel_base_datos}" for="base_datos" />
                         <p:selectOneMenu id="base_datos" value="#{sistemaController.selected.base_datos}" >
                             <f:selectItems value="#{base_DatosController.itemsAvailableSelectOne}"
                                            var="base_datosItem"
+                                           itemLabel="#{base_datosItem.nombre}"
                                            itemValue="#{base_datosItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSistemaLabel_nombre}" for="nombre" />
@@ -41,6 +45,7 @@
                         <p:selectOneMenu id="lenguaje" value="#{sistemaController.selected.lenguaje}" >
                             <f:selectItems value="#{lenguajeController.itemsAvailableSelectOne}"
                                            var="lenguajeItem"
+                                           itemLabel="#{lenguajeItem.nombre}"
                                            itemValue="#{lenguajeItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>

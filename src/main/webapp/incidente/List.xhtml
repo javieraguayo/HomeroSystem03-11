@@ -37,19 +37,25 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_responsable}"/>
                             </f:facet>
-                            <h:outputText value="#{item.responsable}"/>
+                            <h:outputText value="#{item.responsable.nombres}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_sistema}"/>
                             </f:facet>
-                            <h:outputText value="#{item.sistema}"/>
+                            <h:outputText value="#{item.sistema.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_solucion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.solucion}"/>
+                            <h:outputText value="#{item.solucion.estado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolucionTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.solucion.descripcion}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

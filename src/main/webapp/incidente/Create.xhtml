@@ -17,18 +17,21 @@
                         <p:selectOneMenu id="responsable" value="#{incidenteController.selected.responsable}" >
                             <f:selectItems value="#{responsableController.itemsAvailableSelectOne}"
                                            var="responsableItem"
+                                           itemLabel="#{responsableItem.nombres}"
                                            itemValue="#{responsableItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateIncidenteLabel_sistema}" for="sistema" />
                         <p:selectOneMenu id="sistema" value="#{incidenteController.selected.sistema}" >
                             <f:selectItems value="#{sistemaController.itemsAvailableSelectOne}"
                                            var="sistemaItem"
+                                           itemLabel="#{sistemaItem.nombre}"
                                            itemValue="#{sistemaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateIncidenteLabel_solucion}" for="solucion" />
                         <p:selectOneMenu id="solucion" value="#{incidenteController.selected.solucion}" >
                             <f:selectItems value="#{solucionController.itemsAvailableSelectOne}"
                                            var="solucionItem"
+                                           itemLabel="#{solucionItem.estado}"
                                            itemValue="#{solucionItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateIncidenteLabel_fecha}" for="fecha" />
