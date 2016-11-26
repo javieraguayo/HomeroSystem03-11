@@ -93,4 +93,11 @@ public class IndexController implements Serializable{
         return us.getUsuario(); 
     
     }
+    
+    public Integer rolLogeado(){
+        
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        return us.getRol().getId_rol(); 
+    
+    }
 }
