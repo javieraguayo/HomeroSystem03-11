@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-          
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"  
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="utf-8" />
@@ -16,10 +16,10 @@
                 <p:messages  autoUpdate="true"/>
                 
                 <h:graphicImage style="text-align: center" value="/resources/images/user.jpg"></h:graphicImage>
-                <h:inputText id="username" p:placeholder="Usuario" value="#{indexController.usuario.usuario}" requiredMessage="Usuario requerido" required="true" />	
+                <h:inputText id="username" pt:placeholder="Usuario" value="#{indexController.usuario.usuario}" requiredMessage="Usuario requerido" required="true" />	
                     
 
-                <h:inputSecret id="Password" p:placeholder="Password" value="#{indexController.usuario.password}"   requiredMessage="Password requerido"  required="true"/>
+                <h:inputSecret id="Password" pt:placeholder="Password" value="#{indexController.usuario.password}"   requiredMessage="Password requerido"  required="true"/>
                     
 
                 <h:commandButton  class="btn-primary" action="#{indexController.iniciarSesion()}" value="Entrar" ></h:commandButton>
