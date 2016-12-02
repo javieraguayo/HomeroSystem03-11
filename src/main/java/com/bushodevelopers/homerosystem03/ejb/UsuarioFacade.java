@@ -34,6 +34,8 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     @Override
     public Usuario iniciarSesion(Usuario us) {
         Usuario usuario = null;
+        
+        
         String consulta;
         try {
             consulta = "FROM Usuario u WHERE u.usuario =?1 and u.password =?2";

@@ -21,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/homero.css"/>
         <script type="text/javascript" src="../resources/js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../resources/js/incidents.js"></script>
 
         <!-- you need to include the shieldui css and js assets in order for the charts to work -->
         <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
@@ -30,6 +31,15 @@
         <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
     </h:head>
     <body>
+        
+         <div id="notify-container" class="container" style="position: absolute;">
+            <div class="span4 pull-right">
+              <div id="notify" class="alert alert-danger fade">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Se ha detectado un nuevo incidente!</strong>
+              </div>
+            </div>
+        </div>
         <div id="wrapper">
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
@@ -506,6 +516,8 @@
                 </div>
             </div>
         </div>
+       
+        <div id="incident" name="incident"></div>
         <!-- /#wrapper -->
 
         <script type="text/javascript">
@@ -578,6 +590,7 @@
                         {field: "Target", title: "Target"},
                     ]
                 });
+                
             });
         </script>
     </body>
