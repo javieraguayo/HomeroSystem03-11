@@ -18,11 +18,22 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Named("incidenteController")
 @SessionScoped
 public class IncidenteController implements Serializable {
 
+    
+    @PersistenceContext(unitName = "com.bushoDevelopers_HomeroSystem03-11_war_1.0PU")
+    private EntityManager em;
+
+    protected EntityManager getEntityManager() {
+        return em;
+    }
+    
     @EJB
     private com.bushodevelopers.homerosystem03.ejb.IncidenteFacade ejbFacade;
     private List<Incidente> items = null;
@@ -119,6 +130,24 @@ public class IncidenteController implements Serializable {
 
     public List<Incidente> getItemsAvailableSelectOne() {
         return getFacade().findAll();
+    }
+    
+    public Incidente getUltimoIncidente(){
+    
+        Incidente incidente = null;
+        String consulta;
+        try {
+            consulta = "FROM Incidente i WHERE i.solucion.id_solucion = 246 ORDER BY i.solucion.id_solucion DESC";
+            Query query = em.createQuery(consulta);
+            List<Incidente> lista = query.getResultList();
+            if (!lista.isEmpty()) {
+                incidente = lista.get(0);
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return incidente;
+
     }
 
     @FacesConverter(forClass = Incidente.class)
