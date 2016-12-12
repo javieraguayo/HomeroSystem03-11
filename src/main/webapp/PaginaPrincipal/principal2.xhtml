@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <f:event type="preRenderView" listener="#{indexController.verificarSesion()}"/>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <title>Homero System</title>
+
+        <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../resources/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="../resources/css/local.css" />
+        <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/homero.css"/>
+        <script type="text/javascript" src="../resources/js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../resources/js/incidents.js"></script>
+
+        <!-- Agregado para visualizar grafico -->
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.css" />
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.cursor.min.js"></script>
+        <!-- Agregado para visualizar grafico -->
+        <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+        <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+        <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
+
+        <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+    </h:head>
+    <h:body>
+        <div id="notify-container" class="container" style="position: absolute;">
+            <div class="span4 pull-right">
+                <div id="notify" class="alert alert-danger fade">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Se ha detectado un nuevo incidente!</strong>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="principal.xhtml">Homero System</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul id="active" class="nav navbar-nav side-nav">
+                        <li class="selected"><a href="principal.xhtml"><i class="fa fa-bullseye"></i> Inicio</a></li>
+                        <li><a href="../base_Datos/List.xhtml"><i class="fa fa-database"></i> Bases de Datos</a></li>
+                        <li><a href="../garantia/List.xhtml"><i class="fa fa-list"></i> Garantias</a></li>
+                        <li><a href="../incidente/List.xhtml"><i class="fa fa-list-ol"></i> Incidentes</a></li>
+                        <li><a href="../lenguaje/List.xhtml"><i class="fa fa-list-ol"></i> Lenguaje Sistemas</a></li>
+                        <li><a href="../proveedor/List.xhtml"><i class="fa fa-list-ol"></i>Proveedores</a></li>
+                        <li><a href="../rack/List.xhtml"><i class="fa fa-server"></i> Racks</a> </li>
+                        <li><a href="../responsable/List.xhtml"><i class="fa fa-users"></i> Responsables</a></li>
+                        <li><a href="../servidor/List.xhtml"><i class="fa fa-server"></i> Servidores</a></li>
+                        <li><a href="../servidor_Apk/List.xhtml"><i class="fa fa-server"></i>Aplicaciones</a></li>
+                        <li><a href="../sistema/List.xhtml"><i class="fa fa-gears"></i> Sistemas</a></li>
+                        <li><a href="../solucion/List.xhtml"><i class="fa fa-bookmark"></i> Soluciones</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right navbar-user">
+                        <li class="dropdown messages-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Alertas <span class="badge">2</span> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Alertas</li>
+                                <li class="message-preview">
+                                    <a href="#">
+                                        <span class="avatar"><i class="fa fa-bell"></i></span>
+                                        <span class="message">Security alert</span>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="message-preview">
+                                    <a href="#">
+                                        <span class="avatar"><i class="fa fa-bell"></i></span>
+                                        <span class="message">Security alert</span>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> #{indexController.usuarioLogeado()}<b class="caret"></b></a>
+                            <c:if test="#{indexController.rolLogeado() == 1}">
+                                <ul class="dropdown-menu">
+                                    <li ><a href="../usuario/List.xhtml"><i class="fa fa-users"></i> Usuarios</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="../rol/List.xhtml"><i class="fa fa-gear"></i> Roles</a></li>
+                                </ul>
+                            </c:if>
+                        </li >
+                        <li class="message-preview">
+                            <a id="reporte" href="reporte.xhtml" target="_blank">
+                                <span class="avatar"><i class="fa fa-bolt"></i></span>
+                                <span class="message">Reportar Error</span>
+                            </a>
+                        </li>
+                        <li class="dropdown user-dropdown">
+                            <h:form>
+                                <!--
+                                <h:commandLink class="fa fa-power-off" style=" margin: 18px auto; text-align: center;" action="" > Cerrar Sesión</h:commandLink>
+                                -->
+                                <h:commandLink style=" margin: 18px auto; text-align: center; color:#FFFFFF!important; " class="fa fa-power-off" actionListener="#{indexController.cerrarSesion()}" action="/index?faces-redirect=true" > Cerrar Sesión</h:commandLink>
+                            </h:form>
+                        </li>
+                        <li class="divider-vertical"></li> 
+                    </ul>
+                </div>
+            </nav>
+             <h:form id="form1">
+        <p:panel>
+            <p:chart type="line" model="#{chartView.areaModel}"	style="height:300px"/>
+        </p:panel>
+    </h:form>
+            <div>  
+                 <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel2}" style="width:400px;height:250px" />
+            </div> 
+        </div>
+    </h:body>
+</html>
+

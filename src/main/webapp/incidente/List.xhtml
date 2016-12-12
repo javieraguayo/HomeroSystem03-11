@@ -12,11 +12,11 @@
         <ui:define name="title">
             <h:outputText value="#{bundle.ListIncidenteTitle}"></h:outputText>
         </ui:define>
-
+        
         <ui:define name="body">
             <h:form id="IncidenteListForm">
                 <p:panel header="#{bundle.ListIncidenteTitle}">
-                    <p:dataTable id="datalist" value="#{incidenteController.items}" var="item"
+                    <p:dataTable id="datalist" value="#{incidenteController.items}" var="item" widgetVar="table"
                                  selectionMode="single" selection="#{incidenteController.selected}"
                                  paginator="true"
                                  rowKey="#{item.id_incidente}"
@@ -27,33 +27,40 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column filterBy="#{item.id_incidente}" filterMatchMode="contains">
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Busqueda" />
+                                <p:inputText id="globalFilter" onkeyup="PF('table').filter()" style="width:150px" placeholder="Ingrese una letra"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column filterBy="#{item.id_incidente}" sortBy="#{item.id_incidente}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_id_incidente}"/>
                             </f:facet>
                             <h:outputText value="#{item.id_incidente}"/>
                         </p:column>
-                        <p:column filterBy="#{item.responsable.nombres}" filterMatchMode="contains">
+                        <p:column filterBy="#{item.responsable.nombres}" sortBy="#{item.responsable.nombres}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_responsable}"/>
                             </f:facet>
                             <h:outputText value="#{item.responsable.nombres}"/>
                         </p:column>
-                        <p:column filterBy="#{item.sistema.nombre}" filterMatchMode="contains">
+                        <p:column filterBy="#{item.sistema.nombre}" sortBy="#{item.sistema.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_sistema}"/>
                             </f:facet>
                             <h:outputText value="#{item.sistema.nombre}"/>
                         </p:column>
-                        <p:column filterBy="#{item.solucion.estado}" filterMatchMode="contains">
+                        <p:column filterBy="#{item.solucion.estado}" sortBy="#{item.solucion.estado}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_solucion}"/>
                             </f:facet>
                             <h:outputText value="#{item.solucion.estado}"/>
                         </p:column>
-                        <p:column filterBy="#{item.solucion.descripcion}" filterMatchMode="contains">
+                        <p:column filterBy="#{item.solucion.descripcion}" sortBy="#{item.solucion.estado}" filterMatchMode="contains">
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSolucionTitle_descripcion}"/>
+                                <h:outputText value="Solución"/>
                             </f:facet>
                             <h:outputText value="#{item.solucion.descripcion}"/>
                         </p:column>
@@ -79,6 +86,22 @@
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
+                <h3>Exportar Incidentes </h3>
+                <h:commandLink>
+                    <p:graphicImage url="./../resources/images/xls.png" width="40"/>
+                    <p:dataExporter type="xls" target="datalist" fileName="incidentes" pageOnly="true"/>
+                </h:commandLink>
+
+                <h:commandLink>
+                    <p:graphicImage url="./../resources/images/pdf.png" width="40" />
+                    <p:dataExporter type="pdf" target="datalist" fileName="incidentes" pageOnly="true" />
+                </h:commandLink>
+
+                <h:commandLink>
+                    <p:graphicImage url="./../resources/images/xml.png" width="40"/>
+                    <p:dataExporter type="xml" target="datalist" fileName="incidentes" pageOnly="true" />
+                </h:commandLink>
+
             </h:form>
 
             <ui:include src="Create.xhtml"/>
@@ -87,4 +110,17 @@
         </ui:define>
     </ui:composition>
 
+      <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/584e60cd4160416f6d9e78b5/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </html>

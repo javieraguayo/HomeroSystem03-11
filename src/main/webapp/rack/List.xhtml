@@ -27,19 +27,14 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRackTitle_id_rack}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id_rack}"/>
-                        </p:column>
-                        <p:column>
+                        
+                        <p:column filterBy="#{item.nombre}" sortBy="#{item.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListRackTitle_nombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.capacidad}" sortBy="#{item.capacidad}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListRackTitle_capacidad}"/>
                             </f:facet>

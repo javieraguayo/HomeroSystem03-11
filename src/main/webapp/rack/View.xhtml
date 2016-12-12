@@ -12,8 +12,7 @@
             <h:form id="RackViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rackController.selected != null}">
-                        <h:outputText value="#{bundle.ViewRackLabel_id_rack}"/>
-                        <h:outputText value="#{rackController.selected.id_rack}" title="#{bundle.ViewRackTitle_id_rack}"/>
+                       
                         <h:outputText value="#{bundle.ViewRackLabel_nombre}"/>
                         <h:outputText value="#{rackController.selected.nombre}" title="#{bundle.ViewRackTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewRackLabel_capacidad}"/>

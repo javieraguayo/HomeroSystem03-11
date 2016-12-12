@@ -12,12 +12,14 @@
             <h:form id="RackEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rackController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditRackLabel_id_rack}" for="id_rack" />
-                        <p:inputText id="id_rack" value="#{rackController.selected.id_rack}" title="#{bundle.EditRackTitle_id_rack}" />
+                        
+                        
                         <p:outputLabel value="#{bundle.EditRackLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{rackController.selected.nombre}" title="#{bundle.EditRackTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{rackController.selected.nombre}" maxlength="50" required="true" title="#{bundle.EditRackTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditRackLabel_capacidad}" for="capacidad" />
-                        <p:inputText id="capacidad" value="#{rackController.selected.capacidad}" title="#{bundle.EditRackTitle_capacidad}" />
+                        <p:inputText id="capacidad" value="#{rackController.selected.capacidad}" maxlength="20" required="true" rendererType="number" title="#{bundle.EditRackTitle_capacidad}" />
+                        <br/>
+                        <p:slider for="capacidad" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{rackController.update}" value="#{bundle.Save}" update="display,:RackListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RackEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="RackEditDialog.hide()"/>

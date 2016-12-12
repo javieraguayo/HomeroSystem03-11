@@ -22,7 +22,16 @@
         <script type="text/javascript" src="../resources/js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../resources/js/incidents.js"></script>
-
+        
+        <!-- Agregado para visualizar grafico -->
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.css" />
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.cursor.min.js"></script>
+        <!-- Agregado para visualizar grafico -->
         <!-- you need to include the shieldui css and js assets in order for the charts to work -->
         <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
         <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
@@ -30,14 +39,27 @@
         <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
         <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
     </h:head>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/584e60cd4160416f6d9e78b5/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
     <body>
-        
-         <div id="notify-container" class="container" style="position: absolute;">
+
+        <div id="notify-container" class="container" style="position: absolute;">
             <div class="span4 pull-right">
-              <div id="notify" class="alert alert-danger fade">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>Se ha detectado un nuevo incidente!</strong>
-              </div>
+                <div id="notify" class="alert alert-danger fade">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Se ha detectado un nuevo incidente!</strong>
+                </div>
             </div>
         </div>
         <div id="wrapper">
@@ -104,13 +126,13 @@
                                 </ul>
                             </c:if>
                         </li >
-                                    
+
                         <li class="message-preview">
-                                    <a id="reporte" href="reporte.xhtml" target="_blank">
-                                        <span class="avatar"><i class="fa fa-bolt"></i></span>
-                                        <span class="message">Reportar Error</span>
-                                    </a>
-                         </li>
+                            <a id="reporte" href="reporte.xhtml" target="_blank">
+                                <span class="avatar"><i class="fa fa-bolt"></i></span>
+                                <span class="message">Reportar Error</span>
+                            </a>
+                        </li>
 
                         <li class="dropdown user-dropdown">
 
@@ -521,7 +543,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div id="incident" name="incident"></div>
         <!-- /#wrapper -->
 
@@ -595,7 +617,7 @@
                         {field: "Target", title: "Target"},
                     ]
                 });
-                
+
             });
         </script>
     </body>

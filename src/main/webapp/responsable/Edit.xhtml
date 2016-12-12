@@ -12,14 +12,13 @@
             <h:form id="ResponsableEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{responsableController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditResponsableLabel_id_responsable}" for="id_responsable" />
-                        <p:inputText id="id_responsable" value="#{responsableController.selected.id_responsable}" title="#{bundle.EditResponsableTitle_id_responsable}" />
+                       
                         <p:outputLabel value="#{bundle.EditResponsableLabel_rut}" for="rut" />
-                        <p:inputText id="rut" value="#{responsableController.selected.rut}" title="#{bundle.EditResponsableTitle_rut}" />
+                        <p:inputText id="rut" value="#{responsableController.selected.rut}" maxlength="20" required="true" title="#{bundle.EditResponsableTitle_rut}" />
                         <p:outputLabel value="#{bundle.EditResponsableLabel_nombres}" for="nombres" />
-                        <p:inputText id="nombres" value="#{responsableController.selected.nombres}" title="#{bundle.EditResponsableTitle_nombres}" />
+                        <p:inputText id="nombres" value="#{responsableController.selected.nombres}" maxlength="30" required="true" title="#{bundle.EditResponsableTitle_nombres}" />
                         <p:outputLabel value="#{bundle.EditResponsableLabel_apellidos}" for="apellidos" />
-                        <p:inputText id="apellidos" value="#{responsableController.selected.apellidos}" title="#{bundle.EditResponsableTitle_apellidos}" />
+                        <p:inputText id="apellidos" value="#{responsableController.selected.apellidos}" maxlength="30" required="true" title="#{bundle.EditResponsableTitle_apellidos}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{responsableController.update}" value="#{bundle.Save}" update="display,:ResponsableListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ResponsableEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ResponsableEditDialog.hide()"/>

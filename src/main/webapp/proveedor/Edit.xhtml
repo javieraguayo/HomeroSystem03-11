@@ -12,16 +12,36 @@
             <h:form id="ProveedorEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{proveedorController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditProveedorLabel_id_proveedor}" for="id_proveedor" />
-                        <p:inputText id="id_proveedor" value="#{proveedorController.selected.id_proveedor}" title="#{bundle.EditProveedorTitle_id_proveedor}" />
+
                         <p:outputLabel value="#{bundle.EditProveedorLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{proveedorController.selected.nombre}" title="#{bundle.EditProveedorTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{proveedorController.selected.nombre}" required="true"  maxlength="30" title="#{bundle.EditProveedorTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditProveedorLabel_telefono}" for="telefono" />
-                        <p:inputText id="telefono" value="#{proveedorController.selected.telefono}" title="#{bundle.EditProveedorTitle_telefono}" />
+                        <p:inputText id="telefono" value="#{proveedorController.selected.telefono}" maxlength="20" required="true" rendererType="number" title="#{bundle.EditProveedorTitle_telefono}" />
                         <p:outputLabel value="#{bundle.EditProveedorLabel_email}" for="email" />
-                        <p:inputText id="email" value="#{proveedorController.selected.email}" title="#{bundle.EditProveedorTitle_email}" />
-                        <p:outputLabel value="#{bundle.EditProveedorLabel_sitio_web}" for="sitio_web" />
-                        <p:inputText id="sitio_web" value="#{proveedorController.selected.sitio_web}" title="#{bundle.EditProveedorTitle_sitio_web}" />
+                        <p:inputText id="email" value="#{proveedorController.selected.email}" 
+                                     title="#{bundle.EditProveedorTitle_email}" maxlength="50"
+
+                                     requiredMessage="Se requiere un correo electrónico"  
+
+                                     required="true"
+
+                                     validatorMessage="El correo ingresado es incorrecto"
+
+                                      >
+
+                            <f:validateRegex
+
+                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /> 
+
+                        </p:inputText>
+
+
+
+
+
+
+                            <p:outputLabel value="#{bundle.EditProveedorLabel_sitio_web}" for="sitio_web" />
+                            <p:inputText id="sitio_web" value="#{proveedorController.selected.sitio_web}" required="true" maxlength="50" title="#{bundle.EditProveedorTitle_sitio_web}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{proveedorController.update}" value="#{bundle.Save}" update="display,:ProveedorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProveedorEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ProveedorEditDialog.hide()"/>

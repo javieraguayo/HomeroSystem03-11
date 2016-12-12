@@ -49,10 +49,10 @@ public class ChartView implements Serializable {
         boys.setFill(true);
         boys.setLabel("Boys");
         boys.set("2004", largo);
-        boys.set("2005", 100);
-        boys.set("2006", 44);
-        boys.set("2007", 150);
-        boys.set("2008", 25);
+        boys.set("2005", 20);
+        boys.set("2006", largo);
+        boys.set("2007", largo);
+        boys.set("2008", largo);
 
         LineChartSeries girls = new LineChartSeries();
         girls.setFill(true);
@@ -79,4 +79,6 @@ public class ChartView implements Serializable {
         yAxis.setMax(300);
 
     }
+    
+    
 }

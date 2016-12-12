@@ -14,7 +14,7 @@
                     <p:panelGrid columns="2" rendered="#{garantiaController.selected != null}">
                         
                         <p:outputLabel value="#{bundle.CreateGarantiaLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{garantiaController.selected.nombre}" required="true" title="#{bundle.CreateGarantiaTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{garantiaController.selected.nombre}" required="true" maxlength="50" title="#{bundle.CreateGarantiaTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateGarantiaLabel_descripcion}" for="descripcion" />
                         <p:inputTextarea  id="descripcion" value="#{garantiaController.selected.descripcion}" 
                                           rows="5" cols="30" counter="display1" maxlength="400" counterTemplate="{0} caracteres restantes." autoResize="false" required="true" title="#{bundle.CreateGarantiaTitle_descripcion}" />

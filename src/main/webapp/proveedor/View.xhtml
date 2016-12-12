@@ -12,8 +12,7 @@
             <h:form id="ProveedorViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{proveedorController.selected != null}">
-                        <h:outputText value="#{bundle.ViewProveedorLabel_id_proveedor}"/>
-                        <h:outputText value="#{proveedorController.selected.id_proveedor}" title="#{bundle.ViewProveedorTitle_id_proveedor}"/>
+                        
                         <h:outputText value="#{bundle.ViewProveedorLabel_nombre}"/>
                         <h:outputText value="#{proveedorController.selected.nombre}" title="#{bundle.ViewProveedorTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewProveedorLabel_telefono}"/>
