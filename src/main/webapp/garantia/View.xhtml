@@ -12,8 +12,7 @@
             <h:form id="GarantiaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{garantiaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewGarantiaLabel_id_garantia}"/>
-                        <h:outputText value="#{garantiaController.selected.id_garantia}" title="#{bundle.ViewGarantiaTitle_id_garantia}"/>
+                       
                         <h:outputText value="#{bundle.ViewGarantiaLabel_nombre}"/>
                         <h:outputText value="#{garantiaController.selected.nombre}" title="#{bundle.ViewGarantiaTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewGarantiaLabel_descripcion}"/>

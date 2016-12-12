@@ -12,14 +12,13 @@
             <h:form id="Base_DatosEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{base_DatosController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditBase_DatosLabel_id_bd}" for="id_bd" />
-                        <p:inputText id="id_bd" value="#{base_DatosController.selected.id_bd}" title="#{bundle.EditBase_DatosTitle_id_bd}" />
+                        
                         <p:outputLabel value="#{bundle.EditBase_DatosLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{base_DatosController.selected.nombre}" title="#{bundle.EditBase_DatosTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{base_DatosController.selected.nombre}" required="true" maxlength="30" title="#{bundle.EditBase_DatosTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditBase_DatosLabel_motor}" for="motor" />
-                        <p:inputText id="motor" value="#{base_DatosController.selected.motor}" title="#{bundle.EditBase_DatosTitle_motor}" />
+                        <p:inputText id="motor" value="#{base_DatosController.selected.motor}" required="true" maxlength="30" title="#{bundle.EditBase_DatosTitle_motor}" />
                         <p:outputLabel value="#{bundle.EditBase_DatosLabel_version}" for="version" />
-                        <p:inputText id="version" value="#{base_DatosController.selected.version}" title="#{bundle.EditBase_DatosTitle_version}" />
+                        <p:inputText id="version" value="#{base_DatosController.selected.version}" required="true" maxlength="30" title="#{bundle.EditBase_DatosTitle_version}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{base_DatosController.update}" value="#{bundle.Save}" update="display,:Base_DatosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'Base_DatosEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="Base_DatosEditDialog.hide()"/>

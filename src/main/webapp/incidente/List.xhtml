@@ -27,31 +27,31 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.id_incidente}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_id_incidente}"/>
                             </f:facet>
                             <h:outputText value="#{item.id_incidente}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.responsable.nombres}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_responsable}"/>
                             </f:facet>
                             <h:outputText value="#{item.responsable.nombres}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.sistema.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_sistema}"/>
                             </f:facet>
                             <h:outputText value="#{item.sistema.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.solucion.estado}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListIncidenteTitle_solucion}"/>
                             </f:facet>
                             <h:outputText value="#{item.solucion.estado}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.solucion.descripcion}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolucionTitle_descripcion}"/>
                             </f:facet>

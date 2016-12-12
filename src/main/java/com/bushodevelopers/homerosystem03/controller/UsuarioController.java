@@ -4,6 +4,7 @@ import com.bushodevelopers.homerosystem03.model.Usuario;
 import com.bushodevelopers.homerosystem03.controller.util.JsfUtil;
 import com.bushodevelopers.homerosystem03.controller.util.JsfUtil.PersistAction;
 import com.bushodevelopers.homerosystem03.ejb.UsuarioFacadeAuto;
+import static com.bushodevelopers.homerosystem03.model.Usuario_.usuario;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,6 +28,8 @@ public class UsuarioController implements Serializable {
     private com.bushodevelopers.homerosystem03.ejb.UsuarioFacadeAuto ejbFacade;
     private List<Usuario> items = null;
     private Usuario selected;
+    
+    
 
     public UsuarioController() {
     }
@@ -34,6 +37,7 @@ public class UsuarioController implements Serializable {
     public Usuario getSelected() {
         return selected;
     }
+    
 
     public void setSelected(Usuario selected) {
         this.selected = selected;
@@ -57,6 +61,7 @@ public class UsuarioController implements Serializable {
 
     public void create() {
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
+        
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }

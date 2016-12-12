@@ -5,6 +5,7 @@
  */
 package com.bushodevelopers.homerosystem03.ejb;
 
+import com.bushodevelopers.homerosystem03.controller.Encriptacion;
 import com.bushodevelopers.homerosystem03.model.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -21,7 +22,8 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
 
     @PersistenceContext(unitName = "com.bushoDevelopers_HomeroSystem03-11_war_1.0PU")
     private EntityManager em;
-
+    
+   
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -31,10 +33,13 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         super(Usuario.class);
     }
     
+    
+    
     @Override
     public Usuario iniciarSesion(Usuario us) {
         Usuario usuario = null;
         
+        //usuario.setPassword(new Encriptacion().encrypt(us.getPassword()));
         
         String consulta;
         try {
@@ -44,6 +49,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
             query.setParameter(2, us.getPassword());
             List<Usuario> lista = query.getResultList();
 
+            
             if (!lista.isEmpty()) {
                 usuario = lista.get(0);
 

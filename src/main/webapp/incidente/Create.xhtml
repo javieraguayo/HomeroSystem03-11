@@ -35,9 +35,11 @@
                                            itemValue="#{solucionItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateIncidenteLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{incidenteController.selected.fecha}" title="#{bundle.EditIncidenteTitle_fecha}"  showOn="button"/>
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{incidenteController.selected.fecha}" required="true" title="#{bundle.EditIncidenteTitle_fecha}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateIncidenteLabel_descripcion}" for="descripcion" />
-                        <p:inputText id="descripcion" value="#{incidenteController.selected.descripcion}" title="#{bundle.CreateIncidenteTitle_descripcion}" />
+                        <p:inputTextarea id="descripcion" value="#{incidenteController.selected.descripcion}" rows="5" cols="30" counter="display1" maxlength="400" counterTemplate="{0} caracteres restantes." autoResize="false" required="true" title="#{bundle.CreateIncidenteTitle_descripcion}" />
+                        <br/>
+                        <h:outputText id="display1" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{incidenteController.create}" value="#{bundle.Save}" update="display,:IncidenteListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncidenteCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="IncidenteCreateDialog.hide()"/>

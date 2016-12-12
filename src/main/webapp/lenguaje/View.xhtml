@@ -12,8 +12,7 @@
             <h:form id="LenguajeViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{lenguajeController.selected != null}">
-                        <h:outputText value="#{bundle.ViewLenguajeLabel_id_lenguaje}"/>
-                        <h:outputText value="#{lenguajeController.selected.id_lenguaje}" title="#{bundle.ViewLenguajeTitle_id_lenguaje}"/>
+                       
                         <h:outputText value="#{bundle.ViewLenguajeLabel_nombre}"/>
                         <h:outputText value="#{lenguajeController.selected.nombre}" title="#{bundle.ViewLenguajeTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewLenguajeLabel_version}"/>

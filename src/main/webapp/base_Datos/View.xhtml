@@ -12,8 +12,7 @@
             <h:form id="Base_DatosViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{base_DatosController.selected != null}">
-                        <h:outputText value="#{bundle.ViewBase_DatosLabel_id_bd}"/>
-                        <h:outputText value="#{base_DatosController.selected.id_bd}" title="#{bundle.ViewBase_DatosTitle_id_bd}"/>
+                       
                         <h:outputText value="#{bundle.ViewBase_DatosLabel_nombre}"/>
                         <h:outputText value="#{base_DatosController.selected.nombre}" title="#{bundle.ViewBase_DatosTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewBase_DatosLabel_motor}"/>

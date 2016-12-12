@@ -12,12 +12,11 @@
             <h:form id="LenguajeEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{lenguajeController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditLenguajeLabel_id_lenguaje}" for="id_lenguaje" />
-                        <p:inputText id="id_lenguaje" value="#{lenguajeController.selected.id_lenguaje}" title="#{bundle.EditLenguajeTitle_id_lenguaje}" />
+                        
                         <p:outputLabel value="#{bundle.EditLenguajeLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{lenguajeController.selected.nombre}" title="#{bundle.EditLenguajeTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditLenguajeLabel_version}" for="version" />
-                        <p:inputText id="version" value="#{lenguajeController.selected.version}" title="#{bundle.EditLenguajeTitle_version}" />
+                        <p:inputText id="version" value="#{lenguajeController.selected.version}" required="true" maxlength="20" title="#{bundle.EditLenguajeTitle_version}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{lenguajeController.update}" value="#{bundle.Save}" update="display,:LenguajeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'LenguajeEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="LenguajeEditDialog.hide()"/>

@@ -12,16 +12,18 @@
             <h:form id="GarantiaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{garantiaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditGarantiaLabel_id_garantia}" for="id_garantia" />
-                        <p:inputText id="id_garantia" value="#{garantiaController.selected.id_garantia}" title="#{bundle.EditGarantiaTitle_id_garantia}" />
+                        
                         <p:outputLabel value="#{bundle.EditGarantiaLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{garantiaController.selected.nombre}" title="#{bundle.EditGarantiaTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{garantiaController.selected.nombre}" required="true" maxlength="50" title="#{bundle.EditGarantiaTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditGarantiaLabel_descripcion}" for="descripcion" />
-                        <p:inputText id="descripcion" value="#{garantiaController.selected.descripcion}" title="#{bundle.EditGarantiaTitle_descripcion}" />
+                        <p:inputTextarea id="descripcion" value="#{garantiaController.selected.descripcion}" 
+                                         rows="5" cols="30" counter="display1" maxlength="400" counterTemplate="{0} characters remaining." autoResize="false" required="true" title="#{bundle.EditGarantiaTitle_descripcion}" />
+                        <br/>
+                        <h:outputText id="display1" />
                         <p:outputLabel value="#{bundle.EditGarantiaLabel_fecha_inicio}" for="fecha_inicio" />
-                        <p:calendar id="fecha_inicio" pattern="MM/dd/yyyy" value="#{garantiaController.selected.fecha_inicio}" title="#{bundle.EditGarantiaTitle_fecha_inicio}"  showOn="button"/>
+                        <p:calendar id="fecha_inicio" pattern="MM/dd/yyyy" value="#{garantiaController.selected.fecha_inicio}" required="true" title="#{bundle.EditGarantiaTitle_fecha_inicio}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.EditGarantiaLabel_fecha_termino}" for="fecha_termino" />
-                        <p:calendar id="fecha_termino" pattern="MM/dd/yyyy" value="#{garantiaController.selected.fecha_termino}" title="#{bundle.EditGarantiaTitle_fecha_termino}"  showOn="button"/>
+                        <p:calendar id="fecha_termino" pattern="MM/dd/yyyy" value="#{garantiaController.selected.fecha_termino}" required="true" title="#{bundle.EditGarantiaTitle_fecha_termino}"  showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{garantiaController.update}" value="#{bundle.Save}" update="display,:GarantiaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'GarantiaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="GarantiaEditDialog.hide()"/>

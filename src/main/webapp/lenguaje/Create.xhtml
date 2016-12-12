@@ -14,9 +14,9 @@
                     <p:panelGrid columns="2" rendered="#{lenguajeController.selected != null}">
                         
                         <p:outputLabel value="#{bundle.CreateLenguajeLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{lenguajeController.selected.nombre}" title="#{bundle.CreateLenguajeTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{lenguajeController.selected.nombre}" required="true" maxlength="30" title="#{bundle.CreateLenguajeTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateLenguajeLabel_version}" for="version" />
-                        <p:inputText id="version" value="#{lenguajeController.selected.version}" title="#{bundle.CreateLenguajeTitle_version}" />
+                        <p:inputText id="version" value="#{lenguajeController.selected.version}" required="true" maxlength="20" title="#{bundle.CreateLenguajeTitle_version}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{lenguajeController.create}" value="#{bundle.Save}" update="display,:LenguajeListForm:datalist,:growl" oncomplete="handleSubmit(args,'LenguajeCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="LenguajeCreateDialog.hide()"/>
