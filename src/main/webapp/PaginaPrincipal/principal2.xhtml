@@ -12,12 +12,12 @@
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
         <title>Homero System</title>
-        
+
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="../resources/font-awesome/css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="../resources/css/local.css" />
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/homero.css"/>
-        
+
         <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../resources/js/incidents.js"></script>
         <style type="text/css">
@@ -33,6 +33,19 @@
         <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
         <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
     </h:head>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/584e60cd4160416f6d9e78b5/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
     <h:body>
         <div id="notify-container" class="container" style="position: absolute;">
             <div class="span4 pull-right">
@@ -118,10 +131,28 @@
                     </ul>
                 </div>
             </nav>
-            
-            <div>  
-                 <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="width:400px;height:250px" />
-            </div> 
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Sistemas de Administracion <small>Información y Estadisticas</small></h1>
+                        <div class="alert alert-dismissable alert-warning">
+                            <button data-dismiss="alert" class="close" type="button">x</button>
+                            Bienvenidos al Entorno de Administrador de sistemas Homero System 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h:form>
+                <h:panelGrid columns="2" columnClasses="left,right" style="width:100%"> 
+                    <p:chart type="pie" model="#{graficoPie.pieModel1}" style="margin: auto ; width:400px;height:300px" />
+                    <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="margin: auto ; width:400px;height:300px" />
+                </h:panelGrid>
+            </h:form>
+
+            <h:panelGrid columns="1" columnClasses="left,right" style="width:100%"> 
+
+            </h:panelGrid>
+
         </div>
     </h:body>
 </html>
