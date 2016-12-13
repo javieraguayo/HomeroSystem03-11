@@ -12,24 +12,20 @@
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
         <title>Homero System</title>
-
+        
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="../resources/font-awesome/css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="../resources/css/local.css" />
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/homero.css"/>
-        <script type="text/javascript" src="../resources/js/jquery-1.10.2.min.js"></script>
+        
         <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../resources/js/incidents.js"></script>
+        <style type="text/css">
+            table{color: black !important} 
 
-        <!-- Agregado para visualizar grafico -->
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.css" />
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.cursor.min.js"></script>
-        <!-- Agregado para visualizar grafico -->
+
+
+        </style>
         <!-- you need to include the shieldui css and js assets in order for the charts to work -->
         <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
         <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
@@ -122,13 +118,9 @@
                     </ul>
                 </div>
             </nav>
-             <h:form id="form1">
-        <p:panel>
-            <p:chart type="line" model="#{chartView.areaModel}"	style="height:300px"/>
-        </p:panel>
-    </h:form>
+            
             <div>  
-                 <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel2}" style="width:400px;height:250px" />
+                 <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="width:400px;height:250px" />
             </div> 
         </div>
     </h:body>

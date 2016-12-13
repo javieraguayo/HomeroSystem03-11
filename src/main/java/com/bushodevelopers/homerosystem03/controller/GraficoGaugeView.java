@@ -5,10 +5,13 @@
  */
 package com.bushodevelopers.homerosystem03.controller;
 
+import com.bushodevelopers.homerosystem03.model.Incidente;
+import com.bushodevelopers.homerosystem03.model.Lenguaje;
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import org.primefaces.model.chart.MeterGaugeChartModel;
 
@@ -17,12 +20,18 @@ public class GraficoGaugeView implements Serializable{
     
      private MeterGaugeChartModel meterGaugeModel1;
     private MeterGaugeChartModel meterGaugeModel2;
+    
+    @EJB
+    private com.bushodevelopers.homerosystem03.ejb.IncidenteFacade EJBIcidente;
+    private List<Incidente> lista;
+    private Incidente incidente;
  
     @PostConstruct
     public void init() {
+        lista = EJBIcidente.findAll();
         createMeterGaugeModels();
     }
- 
+     
     public MeterGaugeChartModel getMeterGaugeModel1() {
         return meterGaugeModel1;
     }
@@ -32,20 +41,23 @@ public class GraficoGaugeView implements Serializable{
     }
  
     private MeterGaugeChartModel initMeterGaugeModel() {
+        int largo = lista.size();
         List<Number> intervals = new ArrayList<Number>(){{
-            add(20);
-            add(50);
+            add(30);
+            add(60);
+            add(90);
             add(120);
-            add(220);
+            
         }};
          
-        return new MeterGaugeChartModel(140, intervals);
+        return new MeterGaugeChartModel(largo, intervals);
     }
  
     private void createMeterGaugeModels() {
         meterGaugeModel1 = initMeterGaugeModel();
-        meterGaugeModel1.setTitle("MeterGauge Chart");
-        meterGaugeModel1.setGaugeLabel("km/h");
+        meterGaugeModel1.setTitle("Incidentes");
+        meterGaugeModel1.setSeriesColors("66cc66,93b75f,E7E658,cc6666");
+        meterGaugeModel1.setGaugeLabel("Zona");
          
         meterGaugeModel2 = initMeterGaugeModel();
         meterGaugeModel2.setTitle("Custom Options");
