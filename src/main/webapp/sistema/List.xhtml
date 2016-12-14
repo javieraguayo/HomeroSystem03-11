@@ -27,49 +27,44 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSistemaTitle_id_sistema}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id_sistema}"/>
-                        </p:column>
-                        <p:column>
+                        
+                        <p:column filterBy="#{item.servidor_Apk.nombre}" sortBy="#{item.servidor_Apk.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_servidor_Apk}"/>
                             </f:facet>
                             <h:outputText value="#{item.servidor_Apk.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.servidor.nombre}" sortBy="#{item.servidor.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_servidor}"/>
                             </f:facet>
                             <h:outputText value="#{item.servidor.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.base_datos.nombre}" sortBy="#{item.base_datos.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_base_datos}"/>
                             </f:facet>
                             <h:outputText value="#{item.base_datos.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.nombre}" sortBy="#{item.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_nombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.version}" sortBy="#{item.version}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_version}"/>
                             </f:facet>
                             <h:outputText value="#{item.version}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.descripcion}" sortBy="#{item.descripcion}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_descripcion}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcion}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.lenguaje.nombre}" sortBy="#{item.lenguaje.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSistemaTitle_lenguaje}"/>
                             </f:facet>

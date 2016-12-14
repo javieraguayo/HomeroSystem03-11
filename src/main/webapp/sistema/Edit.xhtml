@@ -12,8 +12,7 @@
             <h:form id="SistemaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{sistemaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSistemaLabel_id_sistema}" for="id_sistema" />
-                        <p:inputText id="id_sistema" value="#{sistemaController.selected.id_sistema}" title="#{bundle.EditSistemaTitle_id_sistema}" />
+                       
                         <p:outputLabel value="#{bundle.EditSistemaLabel_servidor_Apk}" for="servidor_Apk" />
                         <p:selectOneMenu id="servidor_Apk" value="#{sistemaController.selected.servidor_Apk}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
@@ -43,7 +42,10 @@
                         <p:outputLabel value="#{bundle.EditSistemaLabel_version}" for="version" />
                         <p:inputText id="version" value="#{sistemaController.selected.version}" title="#{bundle.EditSistemaTitle_version}" />
                         <p:outputLabel value="#{bundle.EditSistemaLabel_descripcion}" for="descripcion" />
-                        <p:inputText id="descripcion" value="#{sistemaController.selected.descripcion}" title="#{bundle.EditSistemaTitle_descripcion}" />
+                        <p:inputTextarea id="descripcion" value="#{sistemaController.selected.descripcion}" 
+                                         rows="5" cols="30" counter="display1" maxlength="300" counterTemplate="{0} caracteres restantes." autoResize="false" required="true" title="#{bundle.EditSistemaTitle_descripcion}" />
+                        <br/>
+                        <h:outputText id="display1"/>
                         <p:outputLabel value="#{bundle.EditSistemaLabel_lenguaje}" for="lenguaje" />
                         <p:selectOneMenu id="lenguaje" value="#{sistemaController.selected.lenguaje}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

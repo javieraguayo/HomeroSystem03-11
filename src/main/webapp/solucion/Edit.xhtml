@@ -12,14 +12,21 @@
             <h:form id="SolucionEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{solucionController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSolucionLabel_id_solucion}" for="id_solucion" />
-                        <p:inputText id="id_solucion" value="#{solucionController.selected.id_solucion}" title="#{bundle.EditSolucionTitle_id_solucion}" />
-                        <p:outputLabel value="#{bundle.EditSolucionLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{solucionController.selected.estado}" title="#{bundle.EditSolucionTitle_estado}" />
+                       
+                         <p:outputLabel for="console" value="Estado:" />
+                        <p:selectOneMenu id="console" value="#{solucionController.selected.estado}" required="true" style="width:125px">
+                            <f:selectItem itemLabel="Seleccione" itemValue="" />
+                            <f:selectItem itemLabel="Abierto" itemValue="Abierto" />
+                            <f:selectItem itemLabel="Solucionado" itemValue="Solucionado" />
+                        </p:selectOneMenu>
+                         
                         <p:outputLabel value="#{bundle.EditSolucionLabel_descripcion}" for="descripcion" />
-                        <p:inputText id="descripcion" value="#{solucionController.selected.descripcion}" title="#{bundle.EditSolucionTitle_descripcion}" />
+                        <p:inputTextarea id="descripcion" value="#{solucionController.selected.descripcion}"  
+                                         rows="5" cols="30" counter="display1" maxlength="300" counterTemplate="{0} caracteres restantes." autoResize="false" required="true" title="#{bundle.EditSolucionTitle_descripcion}" />
+                        <br/>
+                        <h:outputText id="display1"/>
                         <p:outputLabel value="#{bundle.EditSolucionLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{solucionController.selected.fecha}" title="#{bundle.EditSolucionTitle_fecha}"  showOn="button"/>
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{solucionController.selected.fecha}" required="true" title="#{bundle.EditSolucionTitle_fecha}"  showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{solucionController.update}" value="#{bundle.Save}" update="display,:SolucionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SolucionEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SolucionEditDialog.hide()"/>

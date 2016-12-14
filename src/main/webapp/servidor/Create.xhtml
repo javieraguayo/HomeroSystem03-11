@@ -28,15 +28,15 @@
                                            itemValue="#{garantiaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateServidorLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{servidorController.selected.nombre}" title="#{bundle.CreateServidorTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{servidorController.selected.nombre}" maxlength="30" required="true" title="#{bundle.CreateServidorTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateServidorLabel_ubicacion}" for="ubicacion" />
-                        <p:inputText id="ubicacion" value="#{servidorController.selected.ubicacion}" title="#{bundle.CreateServidorTitle_ubicacion}" />
+                        <p:inputText id="ubicacion" value="#{servidorController.selected.ubicacion}" maxlength="30" required="true" title="#{bundle.CreateServidorTitle_ubicacion}" />
                         <p:outputLabel value="#{bundle.CreateServidorLabel_hdd}" for="hdd" />
-                        <p:inputText id="hdd" value="#{servidorController.selected.hdd}" title="#{bundle.CreateServidorTitle_hdd}" />
+                        <p:inputText id="hdd" value="#{servidorController.selected.hdd}" maxlength="50" required="true" title="#{bundle.CreateServidorTitle_hdd}" />
                         <p:outputLabel value="#{bundle.CreateServidorLabel_ram}" for="ram" />
-                        <p:inputText id="ram" value="#{servidorController.selected.ram}" title="#{bundle.CreateServidorTitle_ram}" />
+                        <p:inputText id="ram" value="#{servidorController.selected.ram}" maxlength="50" required="true" title="#{bundle.CreateServidorTitle_ram}" />
                         <p:outputLabel value="#{bundle.CreateServidorLabel_ip}" for="ip" />
-                        <p:inputText id="ip" value="#{servidorController.selected.ip}" title="#{bundle.CreateServidorTitle_ip}" />
+                        <p:inputText id="ip" value="#{servidorController.selected.ip}" maxlength="30" required="true" title="#{bundle.CreateServidorTitle_ip}" />
                         <p:outputLabel value="#{bundle.CreateServidorLabel_rack}" for="rack" />
                         <p:selectOneMenu id="rack" value="#{servidorController.selected.rack}" >
                             <f:selectItems value="#{rackController.itemsAvailableSelectOne}"

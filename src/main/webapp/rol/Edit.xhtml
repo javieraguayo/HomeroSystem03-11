@@ -12,12 +12,11 @@
             <h:form id="RolEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rolController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditRolLabel_id_rol}" for="id_rol" />
-                        <p:inputText id="id_rol" value="#{rolController.selected.id_rol}" title="#{bundle.EditRolTitle_id_rol}" />
+                        
                         <p:outputLabel value="#{bundle.EditRolLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{rolController.selected.nombre}" title="#{bundle.EditRolTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{rolController.selected.nombre}" maxlength="20" required="true" title="#{bundle.EditRolTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditRolLabel_sigla}" for="sigla" />
-                        <p:inputText id="sigla" value="#{rolController.selected.sigla}" title="#{bundle.EditRolTitle_sigla}" />
+                        <p:inputText id="sigla" value="#{rolController.selected.sigla}" maxlength="5" required="true" title="#{bundle.EditRolTitle_sigla}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{rolController.update}" value="#{bundle.Save}" update="display,:RolListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RolEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="RolEditDialog.hide()"/>

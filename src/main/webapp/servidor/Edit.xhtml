@@ -12,8 +12,7 @@
             <h:form id="ServidorEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{servidorController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditServidorLabel_id_servidor}" for="id_servidor" />
-                        <p:inputText id="id_servidor" value="#{servidorController.selected.id_servidor}" title="#{bundle.EditServidorTitle_id_servidor}" />
+                        
                         <p:outputLabel value="#{bundle.EditServidorLabel_proveedor}" for="proveedor" />
                         <p:selectOneMenu id="proveedor" value="#{servidorController.selected.proveedor}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
@@ -31,15 +30,15 @@
                                            itemValue="#{garantiaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditServidorLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{servidorController.selected.nombre}" title="#{bundle.EditServidorTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{servidorController.selected.nombre}" maxlength="30" required="true" title="#{bundle.EditServidorTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditServidorLabel_ubicacion}" for="ubicacion" />
-                        <p:inputText id="ubicacion" value="#{servidorController.selected.ubicacion}" title="#{bundle.EditServidorTitle_ubicacion}" />
+                        <p:inputText id="ubicacion" value="#{servidorController.selected.ubicacion}" maxlength="30" required="true" title="#{bundle.EditServidorTitle_ubicacion}" />
                         <p:outputLabel value="#{bundle.EditServidorLabel_hdd}" for="hdd" />
-                        <p:inputText id="hdd" value="#{servidorController.selected.hdd}" title="#{bundle.EditServidorTitle_hdd}" />
+                        <p:inputText id="hdd" value="#{servidorController.selected.hdd}" maxlength="50" required="true" title="#{bundle.EditServidorTitle_hdd}" />
                         <p:outputLabel value="#{bundle.EditServidorLabel_ram}" for="ram" />
-                        <p:inputText id="ram" value="#{servidorController.selected.ram}" title="#{bundle.EditServidorTitle_ram}" />
+                        <p:inputText id="ram" value="#{servidorController.selected.ram}" maxlength="50" required="true" title="#{bundle.EditServidorTitle_ram}" />
                         <p:outputLabel value="#{bundle.EditServidorLabel_ip}" for="ip" />
-                        <p:inputText id="ip" value="#{servidorController.selected.ip}" title="#{bundle.EditServidorTitle_ip}" />
+                        <p:inputText id="ip" value="#{servidorController.selected.ip}" maxlength="30" required="true" title="#{bundle.EditServidorTitle_ip}" />
                         <p:outputLabel value="#{bundle.EditServidorLabel_rack}" for="rack" />
                         <p:selectOneMenu id="rack" value="#{servidorController.selected.rack}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
