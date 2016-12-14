@@ -66,7 +66,7 @@ public class GraficoPie implements Serializable {
         pieModel1.set("Solucionados", totalsolucionado);
         
          pieModel1.setShowDataLabels(true);
-        pieModel1.setTitle("Incidentes");
+        
         pieModel1.setLegendPosition("w");
     }
      

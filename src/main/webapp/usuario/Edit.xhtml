@@ -49,7 +49,7 @@
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_usuario}" for="usuario" />
                         <p:inputText id="usuario" value="#{usuarioController.selected.usuario}"  maxlength="30" required="true" title="#{bundle.EditUsuarioTitle_usuario}" />
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usuarioController.selected.password}"  maxlength="32" required="true" title="#{bundle.EditUsuarioTitle_password}" />
+                        <p:password id="password" value="#{usuarioController.selected.password}"  maxlength="32" required="true" title="#{bundle.EditUsuarioTitle_password}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.update}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioEditDialog.hide()"/>

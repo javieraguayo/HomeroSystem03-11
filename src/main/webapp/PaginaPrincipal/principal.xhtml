@@ -70,13 +70,21 @@
                     <ul id="active" class="nav navbar-nav side-nav">
                         <li class="selected"><a href="principal.xhtml"><i class="fa fa-bullseye"></i> Inicio</a></li>
                         <li><a href="../base_Datos/List.xhtml"><i class="fa fa-database"></i> Bases de Datos</a></li>
+                        <c:if test="#{indexController.rolLogeado() == 1}">
                         <li><a href="../garantia/List.xhtml"><i class="fa fa-list"></i> Garantias</a></li>
+                        </c:if>
                         <li><a href="../incidente/List.xhtml"><i class="fa fa-list-ol"></i> Incidentes</a></li>
                         <li><a href="../lenguaje/List.xhtml"><i class="fa fa-list-ol"></i> Lenguaje Sistemas</a></li>
+                        <c:if test="#{indexController.rolLogeado() == 1}">
                         <li><a href="../proveedor/List.xhtml"><i class="fa fa-list-ol"></i>Proveedores</a></li>
+                        </c:if>
+                        <c:if test="#{indexController.rolLogeado() == 1}">
                         <li><a href="../rack/List.xhtml"><i class="fa fa-server"></i> Racks</a> </li>
+                        </c:if>
                         <li><a href="../responsable/List.xhtml"><i class="fa fa-users"></i> Responsables</a></li>
+                        <c:if test="#{indexController.rolLogeado() == 1}">
                         <li><a href="../servidor/List.xhtml"><i class="fa fa-server"></i> Servidores</a></li>
+                        </c:if>
                         <li><a href="../servidor_Apk/List.xhtml"><i class="fa fa-server"></i>Servidores de Aplicaciones</a></li>
                         <li><a href="../sistema/List.xhtml"><i class="fa fa-gears"></i> Sistemas</a></li>
                         <li><a href="../solucion/List.xhtml"><i class="fa fa-bookmark"></i> Soluciones</a></li>
@@ -142,29 +150,32 @@
                     </div>
                 </div>
             </div>
-       
-    <p:accordionPanel multiple="true">
-        <p:tab title="Estado General Incidentes">
-            <h:panelGrid columns="2" cellpadding="10" style="width:100%">
-                <p:chart type="pie" model="#{graficoPie.pieModel1}" style="margin: auto ; width:400px;height:300px" />
-                    <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="margin: auto ; width:400px;height:300px" />
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="Godfather Part II">
-            <h:panelGrid columns="2" cellpadding="10">
-                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
-                <h:outputText value="Francis Ford Coppola's legendary..." />
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="Godfather Part III">
-            <h:panelGrid columns="2" cellpadding="10">
-                <p:graphicImage name="demo/images/godfather/godfather3.jpg" />
-                <h:outputText value="After a break of more than 15 years...." />
-            </h:panelGrid>
-        </p:tab>
-    </p:accordionPanel>
 
-            
+            <p:accordionPanel multiple="true">
+                <p:tab title="Estado General Incidentes">
+                    <h:panelGrid columns="2" cellpadding="10" style="width:100%">
+                        <p:chart type="pie" model="#{graficoPie.pieModel1}" style="margin: auto ; width:400px;height:300px" />
+                        <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="margin: auto ; width:400px;height:300px" />
+                    </h:panelGrid>
+
+
+                </p:tab>
+                <p:tab title="Incientes y Sistemas">
+                    <h:panelGrid columns="1" cellpadding="10" style="width:100%">
+                        <p:chart type="line" model="#{graficoLineal.lineModel2}" style="height:300px;"/>
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Icidentes y servidores">
+                    <h:panelGrid columns="1" cellpadding="10" style="margin: auto;width:100%">
+
+                        <p:chart type="bar" model="#{chartView.combinedModel}" style="height:300px" />
+                        <br/>
+                        <br/>
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+
 
         </div>
     </h:body>

@@ -14,7 +14,7 @@
     </h:head>
 
     <h:body>
-
+        
         <p:growl id="growl" life="3000" />
 
         <p:layout fullPage="true">
@@ -22,21 +22,7 @@
                 <h:form id="menuForm">
                     <p:menubar>
                         <p:menuitem value="#{bundle.Home}" outcome="/PaginaPrincipal/principal" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Base_Datos" outcome="/base_Datos/List.xhtml" />
-                            <p:menuitem value="Garantia" outcome="/garantia/List.xhtml" />
-                            <p:menuitem value="Incidente" outcome="/incidente/List.xhtml" />
-                            <p:menuitem value="Lenguaje" outcome="/lenguaje/List.xhtml" />
-                            <p:menuitem value="Proveedor" outcome="/proveedor/List.xhtml" />
-                            <p:menuitem value="Rack" outcome="/rack/List.xhtml" />
-                            <p:menuitem value="Responsable" outcome="/responsable/List.xhtml" />
-                            <p:menuitem value="Rol" outcome="/rol/List.xhtml" />
-                            <p:menuitem value="Servidor" outcome="/servidor/List.xhtml" />
-                            <p:menuitem value="Servidor_Apk" outcome="/servidor_Apk/List.xhtml" />
-                            <p:menuitem value="Sistema" outcome="/sistema/List.xhtml" />
-                            <p:menuitem value="Solucion" outcome="/solucion/List.xhtml" />
-                            <p:menuitem value="Usuario" outcome="/usuario/List.xhtml" />
-                        </p:submenu>
+                        
                     </p:menubar>
                 </h:form>
             </p:layoutUnit>
