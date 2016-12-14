@@ -14,9 +14,9 @@
                     <p:panelGrid columns="2" rendered="#{servidor_ApkController.selected != null}">
                         
                         <p:outputLabel value="#{bundle.CreateServidor_ApkLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{servidor_ApkController.selected.nombre}" title="#{bundle.CreateServidor_ApkTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{servidor_ApkController.selected.nombre}" maxlength="20" required="true" title="#{bundle.CreateServidor_ApkTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateServidor_ApkLabel_version}" for="version" />
-                        <p:inputText id="version" value="#{servidor_ApkController.selected.version}" title="#{bundle.CreateServidor_ApkTitle_version}" />
+                        <p:inputText id="version" value="#{servidor_ApkController.selected.version}" maxlength="30" required="true" title="#{bundle.CreateServidor_ApkTitle_version}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{servidor_ApkController.create}" value="#{bundle.Save}" update="display,:Servidor_ApkListForm:datalist,:growl" oncomplete="handleSubmit(args,'Servidor_ApkCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="Servidor_ApkCreateDialog.hide()"/>

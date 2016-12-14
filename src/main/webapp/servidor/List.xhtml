@@ -27,43 +27,38 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServidorTitle_id_servidor}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id_servidor}"/>
-                        </p:column>
-                        <p:column>
+                        
+                        <p:column  filterBy="#{item.proveedor.nombre}" sortBy="#{item.proveedor.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_proveedor}"/>
                             </f:facet>
                             <h:outputText value="#{item.proveedor.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column  filterBy="#{item.garantia.nombre}" sortBy="#{item.garantia.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_garantia}"/>
                             </f:facet>
                             <h:outputText value="#{item.garantia.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column  filterBy="#{item.nombre}" sortBy="#{item.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_nombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
-                        <p:column>
+                        <p:column  filterBy="#{item.ubicacion}" sortBy="#{item.ubicacion}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_ubicacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.ubicacion}"/>
                         </p:column>
-                        <p:column>
+                        <p:column  filterBy="#{item.hdd}" sortBy="#{item.hdd}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_hdd}"/>
                             </f:facet>
                             <h:outputText value="#{item.hdd}"/>
                         </p:column>
-                        <p:column>
+                        <p:column  filterBy="#{item.ram}" sortBy="#{item.ram}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_ram}"/>
                             </f:facet>
@@ -75,7 +70,7 @@
                             </f:facet>
                             <h:outputText value="#{item.ip}"/>
                         </p:column>
-                        <p:column>
+                        <p:column  filterBy="#{item.rack.nombre}" sortBy="#{item.rack.nombre}" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServidorTitle_rack}"/>
                             </f:facet>

@@ -12,8 +12,7 @@
             <h:form id="Servidor_ApkViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{servidor_ApkController.selected != null}">
-                        <h:outputText value="#{bundle.ViewServidor_ApkLabel_id_serv_apk}"/>
-                        <h:outputText value="#{servidor_ApkController.selected.id_serv_apk}" title="#{bundle.ViewServidor_ApkTitle_id_serv_apk}"/>
+                        
                         <h:outputText value="#{bundle.ViewServidor_ApkLabel_nombre}"/>
                         <h:outputText value="#{servidor_ApkController.selected.nombre}" title="#{bundle.ViewServidor_ApkTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewServidor_ApkLabel_version}"/>

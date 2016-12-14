@@ -12,13 +12,25 @@
             <h:form id="SolucionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{solucionController.selected != null}">
-                        
-                        <p:outputLabel value="#{bundle.CreateSolucionLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{solucionController.selected.estado}" title="#{bundle.CreateSolucionTitle_estado}" />
+
+                      
+
+                        <p:outputLabel for="console" value="Estado:" />
+                        <p:selectOneMenu id="console" value="#{solucionController.selected.estado}" required="true" style="width:125px">
+                            <f:selectItem itemLabel="Seleccione" itemValue="" />
+                            <f:selectItem itemLabel="Abierto" itemValue="Abierto" />
+                            <f:selectItem itemLabel="Solucionado" itemValue="Solucionado" />
+                        </p:selectOneMenu>
+
+
+
                         <p:outputLabel value="#{bundle.CreateSolucionLabel_descripcion}" for="descripcion" />
-                        <p:inputText id="descripcion" value="#{solucionController.selected.descripcion}" title="#{bundle.CreateSolucionTitle_descripcion}" />
+                        <p:inputTextarea id="descripcion" value="#{solucionController.selected.descripcion}" 
+                                         rows="5" cols="30" counter="display1" maxlength="300" counterTemplate="{0} caracteres restantes." autoResize="false" required="true" title="#{bundle.CreateSolucionTitle_descripcion}" />
+                        <br/>
+                        <h:outputText id="display1"/>
                         <p:outputLabel value="#{bundle.CreateSolucionLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{solucionController.selected.fecha}" title="#{bundle.EditSolucionTitle_fecha}"  showOn="button"/>
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{solucionController.selected.fecha}" required="true" title="#{bundle.EditSolucionTitle_fecha}"  showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{solucionController.create}" value="#{bundle.Save}" update="display,:SolucionListForm:datalist,:growl" oncomplete="handleSubmit(args,'SolucionCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SolucionCreateDialog.hide()"/>

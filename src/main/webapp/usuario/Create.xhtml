@@ -21,19 +21,34 @@
                                            itemValue="#{rolItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_rut}" for="rut" />
-                        <p:inputText id="rut" value="#{usuarioController.selected.rut}" title="#{bundle.CreateUsuarioTitle_rut}" />
+                        <p:inputText id="rut" value="#{usuarioController.selected.rut}" maxlength="20" required="true" title="#{bundle.CreateUsuarioTitle_rut}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{usuarioController.selected.nombre}" title="#{bundle.CreateUsuarioTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{usuarioController.selected.nombre}" maxlength="30" required="true" title="#{bundle.CreateUsuarioTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_apellidos}" for="apellidos" />
-                        <p:inputText id="apellidos" value="#{usuarioController.selected.apellidos}" title="#{bundle.CreateUsuarioTitle_apellidos}" />
+                        <p:inputText id="apellidos" value="#{usuarioController.selected.apellidos}" maxlength="30" required="true" title="#{bundle.CreateUsuarioTitle_apellidos}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_telefono}" for="telefono" />
-                        <p:inputText id="telefono" value="#{usuarioController.selected.telefono}" title="#{bundle.CreateUsuarioTitle_telefono}" />
+                        <p:inputText id="telefono" value="#{usuarioController.selected.telefono}" maxlength="20" required="true" rendererType="number" title="#{bundle.CreateUsuarioTitle_telefono}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_email}" for="email" />
-                        <p:inputText id="email" value="#{usuarioController.selected.email}" title="#{bundle.CreateUsuarioTitle_email}" />
+                        <p:inputText id="email" value="#{usuarioController.selected.email}" 
+                                     title="#{bundle.CreateUsuarioTitle_email}"  maxlength="50"
+
+                                     requiredMessage="Se requiere un correo electrónico"  
+
+                                     required="true"
+
+                                     validatorMessage="El correo ingresado es incorrecto"
+
+                                      >
+
+                            <f:validateRegex
+
+                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /> 
+
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuario}" for="usuario" />
-                        <p:inputText id="usuario" value="#{usuarioController.selected.usuario}" title="#{bundle.CreateUsuarioTitle_usuario}" />
+                        <p:inputText id="usuario" value="#{usuarioController.selected.usuario}" maxlength="30" required="true" title="#{bundle.CreateUsuarioTitle_usuario}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" />
+                        <p:password id="password" value="#{usuarioController.selected.password}" maxlength="32" required="true" title="#{bundle.CreateUsuarioTitle_password}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioCreateDialog.hide()"/>

@@ -12,12 +12,11 @@
             <h:form id="Servidor_ApkEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{servidor_ApkController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditServidor_ApkLabel_id_serv_apk}" for="id_serv_apk" />
-                        <p:inputText id="id_serv_apk" value="#{servidor_ApkController.selected.id_serv_apk}" title="#{bundle.EditServidor_ApkTitle_id_serv_apk}" />
+                        
                         <p:outputLabel value="#{bundle.EditServidor_ApkLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{servidor_ApkController.selected.nombre}" title="#{bundle.EditServidor_ApkTitle_nombre}" />
+                        <p:inputText id="nombre" value="#{servidor_ApkController.selected.nombre}" maxlength="20" required="true" title="#{bundle.EditServidor_ApkTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditServidor_ApkLabel_version}" for="version" />
-                        <p:inputText id="version" value="#{servidor_ApkController.selected.version}" title="#{bundle.EditServidor_ApkTitle_version}" />
+                        <p:inputText id="version" value="#{servidor_ApkController.selected.version}" maxlength="30" required="true" title="#{bundle.EditServidor_ApkTitle_version}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{servidor_ApkController.update}" value="#{bundle.Save}" update="display,:Servidor_ApkListForm:datalist,:growl" oncomplete="handleSubmit(args, 'Servidor_ApkEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="Servidor_ApkEditDialog.hide()"/>

@@ -77,7 +77,7 @@
                         <li><a href="../rack/List.xhtml"><i class="fa fa-server"></i> Racks</a> </li>
                         <li><a href="../responsable/List.xhtml"><i class="fa fa-users"></i> Responsables</a></li>
                         <li><a href="../servidor/List.xhtml"><i class="fa fa-server"></i> Servidores</a></li>
-                        <li><a href="../servidor_Apk/List.xhtml"><i class="fa fa-server"></i>Aplicaciones</a></li>
+                        <li><a href="../servidor_Apk/List.xhtml"><i class="fa fa-server"></i>Servidores de Aplicaciones</a></li>
                         <li><a href="../sistema/List.xhtml"><i class="fa fa-gears"></i> Sistemas</a></li>
                         <li><a href="../solucion/List.xhtml"><i class="fa fa-bookmark"></i> Soluciones</a></li>
                     </ul>
@@ -134,7 +134,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Sistemas de Administracion <small>Información y Estadisticas</small></h1>
+                        <h1>Sistemas de Administracion <small>Estadisticas en tiempo real</small></h1>
                         <div class="alert alert-dismissable alert-warning">
                             <button data-dismiss="alert" class="close" type="button">x</button>
                             Bienvenidos al Entorno de Administrador de sistemas Homero System 
@@ -142,15 +142,27 @@
                     </div>
                 </div>
             </div>
-            <div id="page-wrapper">
-              <h2>Estadisticas de Incidentes <small>En tiempo real</small></h2>
-            </div>
-            <h:form>
-                <h:panelGrid columns="2" columnClasses="left,right" style="width:100%"> 
-                    <p:chart type="pie" model="#{graficoPie.pieModel1}" style="margin: auto ; width:400px;height:300px" />
+       
+    <p:accordionPanel multiple="true">
+        <p:tab title="Estado General Incidentes">
+            <h:panelGrid columns="2" cellpadding="10" style="width:100%">
+                <p:chart type="pie" model="#{graficoPie.pieModel1}" style="margin: auto ; width:400px;height:300px" />
                     <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="margin: auto ; width:400px;height:300px" />
-                </h:panelGrid>
-            </h:form>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part II">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                <h:outputText value="Francis Ford Coppola's legendary..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part III">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather3.jpg" />
+                <h:outputText value="After a break of more than 15 years...." />
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
 
             
 
