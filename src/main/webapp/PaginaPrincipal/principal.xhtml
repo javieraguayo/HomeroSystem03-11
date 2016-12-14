@@ -1,11 +1,9 @@
-
-<!DOCTYPE html>
-<html lang="en"
-      xmlns = "http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="utf-8"/>
@@ -19,19 +17,15 @@
         <link rel="stylesheet" type="text/css" href="../resources/font-awesome/css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="../resources/css/local.css" />
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/homero.css"/>
-        <script type="text/javascript" src="../resources/js/jquery-1.10.2.min.js"></script>
+
         <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../resources/js/incidents.js"></script>
-        
-        <!-- Agregado para visualizar grafico -->
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.css" />
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.cursor.min.js"></script>
-        <!-- Agregado para visualizar grafico -->
+        <style type="text/css">
+            table{color: black !important} 
+
+
+
+        </style>
         <!-- you need to include the shieldui css and js assets in order for the charts to work -->
         <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
         <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
@@ -52,8 +46,7 @@
         })();
     </script>
     <!--End of Tawk.to Script-->
-    <body>
-
+    <h:body>
         <div id="notify-container" class="container" style="position: absolute;">
             <div class="span4 pull-right">
                 <div id="notify" class="alert alert-danger fade">
@@ -84,7 +77,7 @@
                         <li><a href="../rack/List.xhtml"><i class="fa fa-server"></i> Racks</a> </li>
                         <li><a href="../responsable/List.xhtml"><i class="fa fa-users"></i> Responsables</a></li>
                         <li><a href="../servidor/List.xhtml"><i class="fa fa-server"></i> Servidores</a></li>
-                        <li><a href="../servidor_Apk/List.xhtml"><i class="fa fa-server"></i>Aplicaciones</a></li>
+                        <li><a href="../servidor_Apk/List.xhtml"><i class="fa fa-server"></i>Servidores de Aplicaciones</a></li>
                         <li><a href="../sistema/List.xhtml"><i class="fa fa-gears"></i> Sistemas</a></li>
                         <li><a href="../solucion/List.xhtml"><i class="fa fa-bookmark"></i> Soluciones</a></li>
                     </ul>
@@ -110,515 +103,70 @@
                                 <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
                             </ul>
                         </li>
-
                         <li class="dropdown user-dropdown">
-
-
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> #{indexController.usuarioLogeado()}<b class="caret"></b></a>
                             <c:if test="#{indexController.rolLogeado() == 1}">
                                 <ul class="dropdown-menu">
                                     <li ><a href="../usuario/List.xhtml"><i class="fa fa-users"></i> Usuarios</a></li>
                                     <li class="divider"></li>
                                     <li><a href="../rol/List.xhtml"><i class="fa fa-gear"></i> Roles</a></li>
-
-
-
                                 </ul>
                             </c:if>
                         </li >
-
                         <li class="message-preview">
                             <a id="reporte" href="reporte.xhtml" target="_blank">
                                 <span class="avatar"><i class="fa fa-bolt"></i></span>
                                 <span class="message">Reportar Error</span>
                             </a>
                         </li>
-
                         <li class="dropdown user-dropdown">
-
-
-
                             <h:form>
                                 <!--
                                 <h:commandLink class="fa fa-power-off" style=" margin: 18px auto; text-align: center;" action="" > Cerrar Sesión</h:commandLink>
                                 -->
                                 <h:commandLink style=" margin: 18px auto; text-align: center; color:#FFFFFF!important; " class="fa fa-power-off" actionListener="#{indexController.cerrarSesion()}" action="/index?faces-redirect=true" > Cerrar Sesión</h:commandLink>
                             </h:form>
-
-
                         </li>
-
-                        <li class="divider-vertical"></li>
-                        <li>
-                            <form class="navbar-search">
-                                <input type="text" placeholder="Search" class="form-control"/>
-                            </form>
-                        </li>
+                        <li class="divider-vertical"></li> 
                     </ul>
                 </div>
             </nav>
-
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Sistemas de Administracion <small>Información y Estadisticas</small></h1>
+                        <h1>Sistemas de Administracion <small>Estadisticas en tiempo real</small></h1>
                         <div class="alert alert-dismissable alert-warning">
                             <button data-dismiss="alert" class="close" type="button">x</button>
                             Bienvenidos al Entorno de Administrador de sistemas Homero System 
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Visits Based on a 10 days data</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="shieldui-chart1"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-rss"></i> Feed</h3>
-                            </div>
-                            <div class="panel-body feed">
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-comment"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            <a href="#">John Doe</a> commented on <a href="#">What Makes Good Code Good</a>.
-                                        </div>
-                                        <div class="time pull-left">
-                                            3 h
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            <a href="#">Merge request #42</a> has been approved by <a href="#">Jessica Lori</a>.
-                                        </div>
-                                        <div class="time pull-left">
-                                            10 h
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-plus-square-o"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            New user <a href="#">Greg Wilson</a> registered.
-                                        </div>
-                                        <div class="time pull-left">
-                                            Today
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-bolt"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            Server fail level raises above normal. <a href="#">See logs</a> for details.
-                                        </div>
-                                        <div class="time pull-left">
-                                            Yesterday
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-archive"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            <a href="#">Database usage report</a> is ready.
-                                        </div>
-                                        <div class="time pull-left">
-                                            Yesterday
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            <a href="#">Order #233985</a> needs additional processing.
-                                        </div>
-                                        <div class="time pull-left">
-                                            Wednesday
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="feed-item">
-                                    <div class="icon pull-left">
-                                        <i class="fa fa-arrow-down"></i>
-                                    </div>
-                                    <div class="feed-item-body">
-                                        <div class="text">
-                                            <a href="#">Load more...</a>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Sources One month tracking </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="shieldui-grid1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Logins per week</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="shieldui-chart2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-magnet"></i> Server Overview</h3>
-                            </div>
-                            <div class="panel-body">
-                                <ul class="server-stats">
-                                    <li>
-                                        <div class="key pull-right">CPU</div>
-                                        <div class="stat">
-                                            <div class="info">60% / 37°C / 3.3 Ghz</div>
-                                            <div class="progress progress-small">
-                                                <div style="width: 70%;" class="progress-bar progress-bar-danger"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="key pull-right">Mem</div>
-                                        <div class="stat">
-                                            <div class="info">29% / 4GB (16 GB)</div>
-                                            <div class="progress progress-small">
-                                                <div style="width: 29%;" class="progress-bar"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="key pull-right">LAN</div>
-                                        <div class="stat">
-                                            <div class="info">6 Mb/s <i class="fa fa-caret-down"></i>3 Mb/s <i class="fa fa-caret-up"></i></div>
-                                            <div class="progress progress-small">
-                                                <div style="width: 48%;" class="progress-bar progress-bar-inverse"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-4">
-                        <header>
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a data-toggle="tab" href="#stats">Users</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" href="#report">Favorites</a>
-                                </li>
-                                <li class="">
-                                    <a data-toggle="tab" href="#dropdown1">Commenters</a>
-                                </li>
-                            </ul>
-                        </header>
-                        <div class="body tab-content">
-                            <div class="tab-pane clearfix active" id="stats">
-                                <h5 class="tab-header"><i class="fa fa-calendar-o fa-2x"></i> Last logged-in users</h5>
-                                <ul class="news-list">
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Ivan Gorge</a></div>
-                                            <div class="position">Software Engineer</div>
-                                            <div class="time">Last logged-in: Mar 12, 11:11</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Roman Novak</a></div>
-                                            <div class="position">Product Designer</div>
-                                            <div class="time">Last logged-in: Mar 12, 19:02</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Teras Uotul</a></div>
-                                            <div class="position">Chief Officer</div>
-                                            <div class="time">Last logged-in: Jun 16, 2:34</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Deral Ferad</a></div>
-                                            <div class="position">Financial Assistant</div>
-                                            <div class="time">Last logged-in: Jun 18, 4:20</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Konrad Polerd</a></div>
-                                            <div class="position">Sales Manager</div>
-                                            <div class="time">Last logged-in: Jun 18, 5:13</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" id="report">
-                                <h5 class="tab-header"><i class="fa fa-star fa-2x"></i> Popular contacts</h5>
-                                <ul class="news-list news-list-no-hover">
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Pol Johnsson</a></div>
-                                            <div class="options">
-                                                <button class="btn btn-xs btn-success">
-                                                    <i class="fa fa-phone"></i>
-                                                    Call
-                                                </button>
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="fa fa-envelope-o"></i>
-                                                    Message
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Terry Garel</a></div>
-                                            <div class="options">
-                                                <button class="btn btn-xs btn-success">
-                                                    <i class="fa fa-phone"></i>
-                                                    Call
-                                                </button>
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="fa fa-envelope-o"></i>
-                                                    Message
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Eruos Forkal</a></div>
-                                            <div class="options">
-                                                <button class="btn btn-xs btn-success">
-                                                    <i class="fa fa-phone"></i>
-                                                    Call
-                                                </button>
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="fa fa-envelope-o"></i>
-                                                    Message
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Remus Reier</a></div>
-                                            <div class="options">
-                                                <button class="btn btn-xs btn-success">
-                                                    <i class="fa fa-phone"></i>
-                                                    Call
-                                                </button>
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="fa fa-envelope-o"></i>
-                                                    Message
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Lover Lund</a></div>
-                                            <div class="options">
-                                                <button class="btn btn-xs btn-success">
-                                                    <i class="fa fa-phone"></i>
-                                                    Call
-                                                </button>
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="fa fa-envelope-o"></i>
-                                                    Message
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" id="dropdown1">
-                                <h5 class="tab-header"><i class="fa fa-comments fa-2x"></i> Top Commenters</h5>
-                                <ul class="news-list">
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Edin Garey</a></div>
-                                            <div class="comment">
-                                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur 
-                                                aut odit aut fugit,sed quia
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Firel Lund</a></div>
-                                            <div class="comment">
-                                                Duis aute irure dolor in reprehenderit in voluptate velit
-                                                esse cillum dolore eu fugiat.
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Jessica Desingter</a></div>
-                                            <div class="comment">
-                                                Excepteur sint occaecat cupidatat non proident, sunt in
-                                                culpa qui officia deserunt.
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Novel Forel</a></div>
-                                            <div class="comment">
-                                                Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque.
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-user fa-4x pull-left"></i>
-                                        <div class="news-item-info">
-                                            <div class="name"><a href="#">Wedol Reier</a></div>
-                                            <div class="comment">
-                                                Laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
-                                                et quasi.
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+       
+    <p:accordionPanel multiple="true">
+        <p:tab title="Estado General Incidentes">
+            <h:panelGrid columns="2" cellpadding="10" style="width:100%">
+                <p:chart type="pie" model="#{graficoPie.pieModel1}" style="margin: auto ; width:400px;height:300px" />
+                    <p:chart type="metergauge" model="#{graficoGaugeView.meterGaugeModel1}" style="margin: auto ; width:400px;height:300px" />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part II">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                <h:outputText value="Francis Ford Coppola's legendary..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part III">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather3.jpg" />
+                <h:outputText value="After a break of more than 15 years...." />
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+
+            
+
         </div>
-
-        <div id="incident" name="incident"></div>
-        <!-- /#wrapper -->
-
-        <script type="text/javascript">
-            jQuery(function ($) {
-                var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
-                        visits = [123, 323, 443, 32],
-                        traffic = [
-                            {
-                                Source: "Direct", Amount: 323, Change: 53, Percent: 23, Target: 600
-                            },
-                            {
-                                Source: "Refer", Amount: 345, Change: 34, Percent: 45, Target: 567
-                            },
-                            {
-                                Source: "Social", Amount: 567, Change: 67, Percent: 23, Target: 456
-                            },
-                            {
-                                Source: "Search", Amount: 234, Change: 23, Percent: 56, Target: 890
-                            },
-                            {
-                                Source: "Internal", Amount: 111, Change: 78, Percent: 12, Target: 345
-                            }];
-
-
-                $("#shieldui-chart1").shieldChart({
-                    theme: "dark",
-                    primaryHeader: {
-                        text: "Visitors"
-                    },
-                    exportOptions: {
-                        image: false,
-                        print: false
-                    },
-                    dataSeries: [{
-                            seriesType: "area",
-                            collectionAlias: "Q Data",
-                            data: performance
-                        }]
-                });
-
-                $("#shieldui-chart2").shieldChart({
-                    theme: "dark",
-                    primaryHeader: {
-                        text: "Traffic Per week"
-                    },
-                    exportOptions: {
-                        image: false,
-                        print: false
-                    },
-                    dataSeries: [{
-                            seriesType: "pie",
-                            collectionAlias: "traffic",
-                            data: visits
-                        }]
-                });
-
-                $("#shieldui-grid1").shieldGrid({
-                    dataSource: {
-                        data: traffic
-                    },
-                    sorting: {
-                        multiple: true
-                    },
-                    rowHover: false,
-                    paging: false,
-                    columns: [
-                        {field: "Source", width: "170px", title: "Source"},
-                        {field: "Amount", title: "Amount"},
-                        {field: "Percent", title: "Percent", format: "{0} %"},
-                        {field: "Target", title: "Target"},
-                    ]
-                });
-
-            });
-        </script>
-    </body>
+    </h:body>
 </html>
+
