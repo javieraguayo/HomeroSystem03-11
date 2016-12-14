@@ -12,6 +12,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import static jdk.nashorn.internal.codegen.Compiler.LOG;
 
 /**
  *
@@ -39,8 +40,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     public Usuario iniciarSesion(Usuario us) {
         Usuario usuario = null;
         
-        //usuario.setPassword(new Encriptacion().encrypt(us.getPassword()));
-        
+           
         String consulta;
         try {
             consulta = "FROM Usuario u WHERE u.usuario =?1 and u.password =?2";

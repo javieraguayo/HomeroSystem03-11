@@ -53,6 +53,7 @@ public class IndexController implements Serializable{
         
         try {
             us=EJBUsuario.iniciarSesion(usuario);
+            
             if (us!= null) {
                 //alamcenar session jsf
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);

@@ -6,6 +6,8 @@
 package com.bushodevelopers.homerosystem03.model;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -122,7 +124,33 @@ public class Usuario implements Serializable{
     
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = redirectEncryption(password);
+    }
+    
+    public String redirectEncryption(String password){
+        String pw = password;
+        String hash = null;
+        
+         try{
+             
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(pw.getBytes());
+            byte[] bytes = md.digest();
+            
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            hash = sb.toString();
+            
+            
+        }catch (NoSuchAlgorithmException e) 
+        {
+            //e.printStackTrace();
+        }
+        return hash;
+
     }
 
     @Override

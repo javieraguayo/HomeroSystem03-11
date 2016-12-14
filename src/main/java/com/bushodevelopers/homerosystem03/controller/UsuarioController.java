@@ -7,6 +7,8 @@ import com.bushodevelopers.homerosystem03.ejb.UsuarioFacadeAuto;
 import static com.bushodevelopers.homerosystem03.model.Usuario_.usuario;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -60,6 +62,7 @@ public class UsuarioController implements Serializable {
     }
 
     public void create() {
+        //this.selected.setPassword(this.selected.getPassword());
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
         
         if (!JsfUtil.isValidationFailed()) {
@@ -84,6 +87,32 @@ public class UsuarioController implements Serializable {
             items = getFacade().findAll();
         }
         return items;
+    }
+    
+    public String redirectEncryption(String password){
+        String pw = password;
+        String hash = null;
+        
+         try{
+             
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(pw.getBytes());
+            byte[] bytes = md.digest();
+            
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            hash = sb.toString();
+            
+            
+        }catch (NoSuchAlgorithmException e) 
+        {
+            //e.printStackTrace();
+        }
+        return hash;
+
     }
 
     private void persist(PersistAction persistAction, String successMessage) {
